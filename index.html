@@ -6,7 +6,7 @@
   <title>XR6 Labs HQ — Research Hub | ac.xr6labs.com</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts & Font Awesome Icons -->
+  <!-- Font Awesome & Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   
@@ -35,7 +35,6 @@
   </script>
 
   <style>
-    /* Forged Iron Steel Background with Microfibre Grid Pattern */
     body {
       background-color: #080A0D;
       background-image: 
@@ -66,7 +65,7 @@
   <header class="border-b border-slate-800/80 bg-iron-black/90 backdrop-blur-md sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-col md:flex-row justify-between items-center gap-3">
       
-      <!-- Brand Logo -->
+      <!-- Logo Branding -->
       <div class="flex items-center gap-3">
         <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-power-orange via-chem-cyan to-electric-blue p-0.5 shadow-lg">
           <div class="h-full w-full bg-iron-black rounded-[7px] flex items-center justify-center">
@@ -82,10 +81,10 @@
         </div>
       </div>
 
-      <!-- Controls: Clock, Language Switcher, Researcher Login & Admin Portal -->
+      <!-- Controls: Clock, Dual Language, Researcher Login & Admin Portal -->
       <div class="flex flex-wrap items-center justify-center gap-2.5 text-xs">
         
-        <!-- Live Clocks -->
+        <!-- Malaysian System Clock -->
         <div class="forged-panel px-2.5 py-1.5 rounded-lg border border-slate-700/60 text-slate-300 flex items-center gap-2">
           <i class="far fa-clock text-chem-cyan"></i>
           <span id="live-time" class="font-mono text-white tracking-wider">--:--:--</span>
@@ -106,10 +105,10 @@
           </button>
         </div>
 
-        <!-- RESEARCHER LOGIN BUTTON (Opens Modal) -->
+        <!-- RESEARCHER SIGN IN -->
         <button onclick="openLoginModal()" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-chem-cyan hover:text-white font-rajdhani font-bold px-3 py-1.5 rounded-lg text-xs tracking-wider transition flex items-center gap-1.5">
           <i class="fas fa-id-badge text-horizon-green"></i>
-          <span data-i18n="nav_researcher_login">RESEARCHER SIGN IN</span>
+          <span data-i18n="nav_researcher_login">LOG MASUK PENYELIDIK</span>
         </button>
 
         <!-- ADMIN PORTAL -->
@@ -122,7 +121,7 @@
     </div>
   </header>
 
-  <!-- MULTI-COLOR SIGNATURE LINE -->
+  <!-- 4-COLOR SIGNATURE BAND -->
   <div class="h-1 w-full bg-gradient-to-r from-power-orange via-horizon-green via-chem-cyan to-electric-blue"></div>
 
   <!-- TICKER DAKWAH & INFORMASI AWAM -->
@@ -139,11 +138,11 @@
     </div>
   </section>
 
-  <!-- MAIN WRAPPER -->
-  <main class="max-w-7xl mx-auto px-4 py-8 flex-grow">
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 py-8 flex-grow space-y-12">
     
-    <!-- 4D DISPLAY HEADER (cX CORE DISPLAY) -->
-    <section class="mb-12 relative rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl group">
+    <!-- 4D DISPLAY HEADER (cX CORE INTEGRITY DISPLAY) -->
+    <section class="relative rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl group">
       <div class="relative w-full h-72 sm:h-96 md:h-[430px] bg-slate-950 overflow-hidden">
         <img 
           src="1000034990.png" 
@@ -178,8 +177,8 @@
       </div>
     </section>
 
-    <!-- SECTION 1: COLLABORATION & COMPLIANCE BADGES (DORA, COARA, CAMBRIDGE, ORCID, ZENODO) -->
-    <section class="mb-12">
+    <!-- SECTION: COLLABORATION & COMPLIANCE BADGES -->
+    <section>
       <div class="flex items-center gap-3 mb-4">
         <div class="h-4 w-1 bg-power-orange rounded-full"></div>
         <h3 class="text-xs font-orbitron font-bold text-slate-400 uppercase tracking-widest" data-i18n="badges_header">
@@ -204,15 +203,15 @@
           <p class="text-base font-orbitron font-bold text-white">ORCID</p>
           <span class="text-[10px] text-chem-cyan block mt-1 font-mono font-bold truncate">0009-0007-5013-7995</span>
         </a>
-        <div class="forged-panel p-4 rounded-xl border-l-2 border-l-power-orange hover:border-power-orange/80 transition duration-300 col-span-2 md:col-span-1">
+        <a href="https://zenodo.org/communities/xr6labs-hub" target="_blank" class="forged-panel p-4 rounded-xl border-l-2 border-l-power-orange hover:border-power-orange/80 transition duration-300 col-span-2 md:col-span-1">
           <p class="text-base font-orbitron font-bold text-white">Zenodo</p>
           <span class="text-[10px] text-slate-400 block mt-1 font-rajdhani">CERN Open Repository (xr6labs-hub)</span>
-        </div>
+        </a>
       </div>
     </section>
 
-    <!-- SECTION 2: GALERI TILAWAH AL-QURAN & SUARA DAKWAH (PUBLIC PLAYBACK) -->
-    <section class="mb-14 forged-panel rounded-2xl p-6 md:p-8 border border-slate-700/70 relative overflow-hidden">
+    <!-- SECTION: GALERI TILAWAH AL-QURAN (SYEIKH MANSUR AL-SALMI) -->
+    <section class="forged-panel rounded-2xl p-6 md:p-8 border border-slate-700/70 relative overflow-hidden">
       <div class="absolute -right-20 -top-20 w-64 h-64 bg-chem-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
       
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-3 border-b border-slate-800 pb-4">
@@ -225,55 +224,57 @@
             <i class="fas fa-quran text-power-orange"></i> <span data-i18n="quran_title">GALERI TILAWAH AL-QURAN AL-KAREEM</span>
           </h3>
           <p class="text-xs text-slate-400 font-sans mt-0.5" data-i18n="quran_desc">
-            Disediakan untuk pelawat awam bagi mendengar rakaman ayat-ayat suci yang diperhalusi melalui makmal audio AI Studio.
+            Alunan bacaan Al-Quran menyentuh jiwa oleh Syeikh Mansur Al-Salmi untuk santapan rohani pelawat awam.
           </p>
         </div>
 
         <div class="flex items-center gap-2 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-horizon-green/40 text-xs text-horizon-green">
-          <i class="fas fa-broadcast-tower"></i>
-          <span class="font-bold font-rajdhani uppercase" data-i18n="quran_badge">Terbuka Untuk Semua Pelawat</span>
+          <i class="fas fa-headphones"></i>
+          <span class="font-bold font-rajdhani uppercase" data-i18n="quran_badge">Alunan Syeikh Mansur Al-Salmi</span>
         </div>
       </div>
 
       <!-- Audio Cards Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         
-        <!-- Track 1 -->
+        <!-- Track 1: Surah Al-Mulk -->
         <div class="bg-iron-black/90 p-5 rounded-xl border border-slate-800/80 hover:border-chem-cyan/50 transition">
           <div class="flex justify-between items-center mb-2">
             <div>
               <span class="text-xs font-orbitron font-bold text-chem-cyan">SURAH AL-MULK</span>
-              <p class="text-[11px] text-slate-400 font-rajdhani" data-i18n="track1_sub">Ayat 1 – 10 • AI Audio Studio Master</p>
+              <p class="text-[11px] text-slate-400 font-rajdhani">Bacaan Penuh • Syeikh Mansur Al-Salmi</p>
             </div>
-            <span class="px-2 py-0.5 rounded bg-power-orange/20 text-power-orange text-[10px] font-bold font-mono">MP3 AUDIO</span>
+            <span class="px-2 py-0.5 rounded bg-power-orange/20 text-power-orange text-[10px] font-bold font-mono">AUDIO MP3</span>
           </div>
           <div class="my-3 p-3 bg-slate-900/60 rounded-lg border border-slate-800 text-right">
             <p class="font-amiri text-lg text-emerald-300 leading-loose">
               تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ
             </p>
           </div>
+          <!-- Sumber Audio Rasmi Mp3Quran Syeikh Mansur Al-Salmi Surah 067 -->
           <audio controls class="w-full h-9 rounded-lg mt-2 outline-none">
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            <source src="https://server14.mp3quran.net/mansor/067.mp3" type="audio/mpeg">
             Pelayar anda tidak menyokong pemain audio.
           </audio>
         </div>
 
-        <!-- Track 2 -->
+        <!-- Track 2: Surah Al-Waqi'ah -->
         <div class="bg-iron-black/90 p-5 rounded-xl border border-slate-800/80 hover:border-horizon-green/50 transition">
           <div class="flex justify-between items-center mb-2">
             <div>
-              <span class="text-xs font-orbitron font-bold text-horizon-green">SURAH AR-RAHMAN</span>
-              <p class="text-[11px] text-slate-400 font-rajdhani" data-i18n="track2_sub">Ayat 1 – 16 • AI Audio Studio Master</p>
+              <span class="text-xs font-orbitron font-bold text-horizon-green">SURAH AL-WAQI'AH</span>
+              <p class="text-[11px] text-slate-400 font-rajdhani">Bacaan Penuh • Syeikh Mansur Al-Salmi</p>
             </div>
-            <span class="px-2 py-0.5 rounded bg-horizon-green/20 text-horizon-green text-[10px] font-bold font-mono">MP3 AUDIO</span>
+            <span class="px-2 py-0.5 rounded bg-horizon-green/20 text-horizon-green text-[10px] font-bold font-mono">AUDIO MP3</span>
           </div>
           <div class="my-3 p-3 bg-slate-900/60 rounded-lg border border-slate-800 text-right">
             <p class="font-amiri text-lg text-emerald-300 leading-loose">
-              فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ
+              إِذَا وَقَعَتِ الْوَاقِعَةُ • لَيْسَ لِوَقْعَتِهَا كَاذِبَةٌ
             </p>
           </div>
+          <!-- Sumber Audio Rasmi Mp3Quran Syeikh Mansur Al-Salmi Surah 056 -->
           <audio controls class="w-full h-9 rounded-lg mt-2 outline-none">
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+            <source src="https://server14.mp3quran.net/mansor/056.mp3" type="audio/mpeg">
             Pelayar anda tidak menyokong pemain audio.
           </audio>
         </div>
@@ -281,32 +282,171 @@
       </div>
     </section>
 
-    <!-- SECTION 3: BIO & TERAS PENYELIDIKAN XR6 LABS HQ -->
+    <!-- SECTION: MULTIMEDIA & VISUAL R&D GALLERY (IMAGE, AUDIO, VIDEO) -->
+    <section class="forged-panel rounded-2xl p-6 md:p-8 border border-slate-700/70">
+      <div class="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
+        <div class="h-5 w-1 bg-chem-cyan rounded-full"></div>
+        <div>
+          <h3 class="text-xl font-bold font-rajdhani text-white uppercase tracking-wider flex items-center gap-2">
+            <i class="fas fa-photo-video text-chem-cyan"></i> <span data-i18n="gallery_title">GALERI MULTIMEDIA PENYELIDIKAN & R&D</span>
+          </h3>
+          <p class="text-xs text-slate-400" data-i18n="gallery_desc">Pameran simulasi komputasi visual, rakaman video makmal maya XR/VR, dan audio eksperimen.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Visual 1: Immersive Video Playback -->
+        <div class="bg-iron-black/90 rounded-xl overflow-hidden border border-slate-800 flex flex-col justify-between">
+          <div class="p-4 pb-2">
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-xs font-orbitron font-bold text-power-orange">SIMULASI 4D / VIDEO</span>
+              <span class="text-[9px] px-2 py-0.5 rounded bg-power-orange/20 text-power-orange font-bold">VR LAB</span>
+            </div>
+            <p class="text-xs text-slate-300 font-rajdhani">Molecular Dynamics & Protein Binding Virtual Visual</p>
+          </div>
+          <div class="px-4 py-2">
+            <video controls poster="1000034990.png" class="w-full h-44 rounded-lg bg-black object-cover">
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+              Pelayar anda tidak menyokong mainan video.
+            </video>
+          </div>
+          <div class="p-4 pt-1">
+            <span class="text-[10px] text-slate-400 block">Saluran bio-komputasi interaktif makmal maya XR6 Labs.</span>
+          </div>
+        </div>
+
+        <!-- Visual 2: Image Gallery (cX Core Auditing) -->
+        <div class="bg-iron-black/90 rounded-xl overflow-hidden border border-slate-800 flex flex-col justify-between">
+          <div class="p-4 pb-2">
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-xs font-orbitron font-bold text-chem-cyan">IMEJ R&D / 4D DISPLAY</span>
+              <span class="text-[9px] px-2 py-0.5 rounded bg-chem-cyan/20 text-chem-cyan font-bold">cX CORE</span>
+            </div>
+            <p class="text-xs text-slate-300 font-rajdhani">Core Integrity Auditing Architecture Schematic</p>
+          </div>
+          <div class="px-4 py-2">
+            <img src="1000034990.png" alt="XR6 Core Architecture" class="w-full h-44 object-cover rounded-lg border border-slate-700/50">
+          </div>
+          <div class="p-4 pt-1">
+            <span class="text-[10px] text-slate-400 block">Seni bina perkakasan selamat dan audit integriti ZK-PoE.</span>
+          </div>
+        </div>
+
+        <!-- Visual 3: Audio Stream / AI Laboratory -->
+        <div class="bg-iron-black/90 rounded-xl overflow-hidden border border-slate-800 flex flex-col justify-between">
+          <div class="p-4 pb-2">
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-xs font-orbitron font-bold text-horizon-green">AUDIO EXPERIMENT</span>
+              <span class="text-[9px] px-2 py-0.5 rounded bg-horizon-green/20 text-horizon-green font-bold">ACOUSTIC AI</span>
+            </div>
+            <p class="text-xs text-slate-300 font-rajdhani">Algorithmic Resonation & Voice Processing Log</p>
+          </div>
+          <div class="px-4 py-6 flex flex-col items-center justify-center bg-slate-900/40 rounded-lg mx-4">
+            <i class="fas fa-waveform-path text-3xl text-horizon-green mb-3"></i>
+            <audio controls class="w-full h-9">
+              <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+          <div class="p-4 pt-2">
+            <span class="text-[10px] text-slate-400 block">Hasil analisis akustik dari studio pemprosesan neural XR6.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: ZENODO & CAMBRIDGE OPEN SCIENTIFIC LIBRARY -->
+    <section class="forged-panel rounded-2xl p-6 md:p-8 border border-slate-700/70">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-3 border-b border-slate-800 pb-4">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="h-2.5 w-2.5 rounded-full bg-electric-blue animate-pulse"></span>
+            <span class="text-xs font-orbitron uppercase tracking-wider text-electric-blue" data-i18n="library_subtitle">Perpustakaan Terbuka Antarabangsa</span>
+          </div>
+          <h3 class="text-2xl font-bold font-rajdhani text-white flex items-center gap-2">
+            <i class="fas fa-book-reader text-chem-cyan"></i> <span data-i18n="library_title">PERPUSTAKAAN KERTAS KERJA & REPOSITORI ZENODO</span>
+          </h3>
+          <p class="text-xs text-slate-400 font-sans mt-0.5" data-i18n="library_desc">
+            Penerbitan pracetak, dataset molekul, dan kertas kerja berwasit yang diindeks dengan DOI rasmi di Zenodo CERN & Cambridge Open Engage.
+          </p>
+        </div>
+
+        <a href="https://zenodo.org/communities/xr6labs-hub" target="_blank" class="bg-slate-900/90 hover:bg-slate-800 px-4 py-2 rounded-xl border border-electric-blue/50 text-xs text-chem-cyan font-rajdhani font-bold flex items-center gap-2 transition">
+          <i class="fas fa-external-link-alt"></i> KOMUNITI ZENODO: xr6labs-hub
+        </a>
+      </div>
+
+      <!-- Scientific Paper Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <!-- Paper 1 -->
+        <div class="bg-iron-black/90 p-5 rounded-xl border border-slate-800 flex flex-col justify-between hover:border-electric-blue/50 transition">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-mono text-power-orange font-bold uppercase">Cambridge Open Engage • DOI Pending</span>
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-mono">Open Access</span>
+            </div>
+            <h4 class="text-base font-bold font-rajdhani text-white mb-2 leading-snug">
+              Eco-Compute Architectures and Post-Quantum Cryptographic Verification in Biomedical AI
+            </h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Kajian perintis pembelahan proteolitik dan protokol pembuktian sifar pengetahuan (ZK-PoE) dalam penjujukan molekul perubatan[cite: 1, 6].
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400 font-rajdhani">Penulis: <strong>Dr. Mohd Rahmat Nasyaa</strong>[cite: 1]</span>
+            <a href="https://zenodo.org/communities/xr6labs-hub" target="_blank" class="text-xs font-rajdhani font-bold text-chem-cyan hover:underline flex items-center gap-1">
+              <i class="fas fa-file-pdf"></i> Akses Kertas Kerja
+            </a>
+          </div>
+        </div>
+
+        <!-- Paper 2 -->
+        <div class="bg-iron-black/90 p-5 rounded-xl border border-slate-800 flex flex-col justify-between hover:border-horizon-green/50 transition">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-mono text-horizon-green font-bold uppercase">Zenodo Community • CERN Open Repository</span>
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-mono">Public Dataset</span>
+            </div>
+            <h4 class="text-base font-bold font-rajdhani text-white mb-2 leading-snug">
+              Multi-Agent AI Verification and Merkle Tree State Auditing on NCBI/GEO Biomarkers
+            </h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Dataset rujukan umum dan saluran paip pengauditan berketepatan tinggi bagi integrasi pangkalan data genomik NIH/GEO[cite: 1, 2, 4].
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400 font-rajdhani">Afiliasi: <strong>XR6 Labs HQ</strong>[cite: 4]</span>
+            <a href="https://zenodo.org/communities/xr6labs-hub" target="_blank" class="text-xs font-rajdhani font-bold text-horizon-green hover:underline flex items-center gap-1">
+              <i class="fas fa-database"></i> Lihat di Zenodo
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: BIO & TERAS PENYELIDIKAN XR6 LABS HQ -->
     <section class="grid grid-cols-1 md:grid-cols-3 gap-5">
-      
-      <!-- Card 1: Biomedical AI -->
       <div class="forged-panel p-6 rounded-2xl border-t-2 border-t-power-orange hover:shadow-lg transition">
         <div class="w-12 h-12 rounded-xl bg-power-orange/10 border border-power-orange/30 text-power-orange flex items-center justify-center mb-4">
           <i class="fas fa-dna text-xl"></i>
         </div>
         <h4 class="text-lg font-rajdhani font-bold text-white uppercase" data-i18n="card1_title">Medical Bio-Engineering</h4>
         <p class="text-xs text-slate-400 font-sans mt-2 leading-relaxed" data-i18n="card1_desc">
-          Penyelidikan sintesis protein (protein synthesis formulation), pembelahan proteolitik (proteolytic cleavage), dan simulasi molekul perubatan berbantu kecerdasan buatan.
+          Penyelidikan sintesis protein (protein synthesis formulation), pembelahan proteolitik (proteolytic cleavage), dan simulasi molekul perubatan berbantu kecerdasan buatan[cite: 1].
         </p>
       </div>
 
-      <!-- Card 2: Virtual Labs & Eco-Compute -->
       <div class="forged-panel p-6 rounded-2xl border-t-2 border-t-chem-cyan hover:shadow-lg transition">
         <div class="w-12 h-12 rounded-xl bg-chem-cyan/10 border border-chem-cyan/30 text-chem-cyan flex items-center justify-center mb-4">
           <i class="fas fa-microchip text-xl"></i>
         </div>
         <h4 class="text-lg font-rajdhani font-bold text-white uppercase" data-i18n="card2_title">XR/VR & Bio-Compute Pipelines</h4>
         <p class="text-xs text-slate-400 font-sans mt-2 leading-relaxed" data-i18n="card2_desc">
-          Integrasi makmal maya interaktif XR/VR bersama saluran bio-komputasi lestari (eco-compute) serta pangkalan data global NCBI, NIH, dan GEO.
+          Integrasi makmal maya interaktif XR/VR bersama saluran bio-komputasi lestari (eco-compute) serta pangkalan data global NCBI, NIH, dan GEO[cite: 1, 4].
         </p>
       </div>
 
-      <!-- Card 3: Lead Researcher Profile -->
       <div class="forged-panel p-6 rounded-2xl border-t-2 border-t-electric-blue hover:shadow-lg transition">
         <div class="w-12 h-12 rounded-xl bg-electric-blue/10 border border-electric-blue/30 text-electric-blue flex items-center justify-center mb-4">
           <i class="fas fa-user-astronaut text-xl"></i>
@@ -316,12 +456,11 @@
           <strong>Dr. Mohd Rahmat Nasyaa Bin Zulkifli</strong> — Lead Researcher & Systems Architect di XR6 Labs HQ; Pengarah Hal Ehwal Akademik XR6 BSA; Penulis Cambridge University Press.
         </p>
       </div>
-
     </section>
 
   </main>
 
-  <!-- RESEARCHER SIGN IN / REGISTRATION MODAL -->
+  <!-- RESEARCHER LOGIN / REGISTRATION MODAL -->
   <div id="login-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="forged-panel border border-slate-700 w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
       <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
@@ -350,7 +489,6 @@
         <div class="flex-grow border-t border-slate-800"></div>
       </div>
 
-      <!-- Institutional Form -->
       <form onsubmit="handleResearcherSubmit(event)" class="space-y-3">
         <div>
           <label class="block text-[11px] font-rajdhani font-semibold text-slate-300 mb-1" data-i18n="modal_label_email">E-mel Institusi / Penyelidik</label>
@@ -393,7 +531,6 @@
 
   <!-- DUAL LANGUAGE SCRIPT & REAL-TIME ENGINE -->
   <script>
-    // Kamus Dwibahasa (BM & EN UK)
     const translations = {
       bm: {
         nav_researcher_login: "LOG MASUK PENYELIDIK",
@@ -405,10 +542,13 @@
         badges_header: "Rangka Kerja Penyelidikan & Afiliasi Antarabangsa",
         quran_subtitle: "Ruangan Da'wah & Penghayatan Rohani",
         quran_title: "GALERI TILAWAH AL-QURAN AL-KAREEM",
-        quran_desc: "Disediakan untuk pelawat awam bagi mendengar rakaman ayat-ayat suci yang diperhalusi melalui makmal audio AI Studio.",
-        quran_badge: "Terbuka Untuk Semua Pelawat",
-        track1_sub: "Ayat 1 – 10 • AI Audio Studio Master",
-        track2_sub: "Ayat 1 – 16 • AI Audio Studio Master",
+        quran_desc: "Alunan bacaan Al-Quran menyentuh jiwa oleh Syeikh Mansur Al-Salmi untuk santapan rohani pelawat awam.",
+        quran_badge: "Alunan Syeikh Mansur Al-Salmi",
+        gallery_title: "GALERI MULTIMEDIA PENYELIDIKAN & R&D",
+        gallery_desc: "Pameran simulasi komputasi visual, rakaman video makmal maya XR/VR, dan audio eksperimen.",
+        library_subtitle: "Perpustakaan Terbuka Antarabangsa",
+        library_title: "PERPUSTAKAAN KERTAS KERJA & REPOSITORI ZENODO",
+        library_desc: "Penerbitan pracetak, dataset molekul, dan kertas kerja berwasit yang diindeks dengan DOI rasmi di Zenodo CERN & Cambridge Open Engage.",
         card1_title: "Medical Bio-Engineering",
         card1_desc: "Penyelidikan sintesis protein (protein synthesis formulation), pembelahan proteolitik (proteolytic cleavage), dan simulasi molekul perubatan berbantu kecerdasan buatan.",
         card2_title: "XR/VR & Bio-Compute Pipelines",
@@ -436,10 +576,13 @@
         badges_header: "Research Frameworks & Global Affiliations",
         quran_subtitle: "Da'wah Sanctuary & Spiritual Reflection",
         quran_title: "HOLY QUR'AN RECITATION GALLERY",
-        quran_desc: "Curated for public visitors to listen to sacred recitations refined through AI Studio acoustic laboratories.",
-        quran_badge: "Open Public Access",
-        track1_sub: "Verses 1 – 10 • AI Audio Studio Master",
-        track2_sub: "Verses 1 – 16 • AI Audio Studio Master",
+        quran_desc: "Soul-stirring recitations of the Holy Qur'an by Sheikh Mansour Al-Salmi curated for spiritual enrichment of public visitors.",
+        quran_badge: "Recitations by Sheikh Mansour Al-Salmi",
+        gallery_title: "R&D MULTIMEDIA GALLERY",
+        gallery_desc: "Visual computational simulations, XR/VR virtual laboratory video demonstrations, and experimental acoustics.",
+        library_subtitle: "International Open Repository",
+        library_title: "RESEARCH PUBLICATIONS & ZENODO LIBRARY",
+        library_desc: "Open-access preprints, molecular datasets, and peer-reviewed papers indexed with official DOIs on CERN Zenodo & Cambridge Open Engage.",
         card1_title: "Medical Bio-Engineering",
         card1_desc: "Research in protein synthesis formulation, proteolytic cleavage, and AI-assisted molecular simulations.",
         card2_title: "XR/VR & Bio-Compute Pipelines",
@@ -484,7 +627,6 @@
       }
     }
 
-    // Modal Control Functions
     function openLoginModal() {
       document.getElementById('login-modal').classList.remove('hidden');
     }
@@ -499,7 +641,6 @@
       window.location.href = "admin.html";
     }
 
-    // Live Malaysian Clock & Hijriah/Miladi Calendar
     function updateClockAndCalendar() {
       const now = new Date();
       const timeStr = now.toLocaleTimeString('en-GB', { 
