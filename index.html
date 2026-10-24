@@ -4,448 +4,255 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XR6 Labs HQ — Research Hub | ac.xr6labs.com</title>
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Share+Tech+Mono&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    .font-jawi { font-family: 'Amiri', serif; }
-    .font-digital { font-family: 'Share Tech Mono', monospace; }
+    .font-amiri { font-family: 'Amiri', serif; }
+    .font-sans { font-family: 'Inter', sans-serif; }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-['Inter'] selection:bg-emerald-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
 
-  <!-- ================= TOP ISLAMIC HEADER & CLOCK BAR ================= -->
-  <div class="bg-slate-900 border-b border-slate-800/80 px-4 py-2.5">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-xs">
+  <!-- TOP BAR: BISMILLAH, CLOCK & CALENDAR -->
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-3">
       
-      <!-- Kalimah Bismillah Jawi Taskheel -->
+      <!-- Islamic Header (Bismillah Jawi Taskheel) -->
       <div class="text-center md:text-left">
-        <span class="font-jawi text-lg md:text-xl text-emerald-400 tracking-wide font-bold">
-          بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
-        </span>
+        <h1 class="font-amiri text-xl md:text-2xl text-emerald-400 tracking-wide">
+          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        </h1>
+        <p class="text-xs text-slate-400">XR6 Labs HQ — Academic & Open-Access Research Hub</p>
       </div>
 
-      <!-- Tarikh Miladi, Kalendar Hijriah & Jam Digital Masa Nyata -->
-      <div class="flex flex-wrap items-center justify-center gap-3 md:gap-5 text-slate-300">
-        <div class="flex items-center space-x-1.5">
-          <span class="text-emerald-500 text-[10px]">📅</span>
-          <span id="miladi-date" class="font-medium text-slate-200">Loading Date...</span>
+      <!-- Real-Time Clocks & Public Visitor Badge -->
+      <div class="flex items-center gap-4 text-xs">
+        <div class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700/60 text-slate-300">
+          <i class="far fa-clock text-emerald-400 mr-1.5"></i><span id="live-time">--:--:--</span> MYT
         </div>
-        <div class="flex items-center space-x-1.5 border-l border-slate-700/80 pl-3">
-          <span class="text-emerald-500 text-[10px]">🌙</span>
-          <span id="hijri-date" class="font-medium text-emerald-300">Loading Hijri...</span>
+        <div class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700/60 text-slate-300">
+          <i class="far fa-calendar-alt text-emerald-400 mr-1.5"></i><span id="live-date">Loading...</span>
         </div>
-        <div class="flex items-center space-x-1.5 border-l border-slate-700/80 pl-3">
-          <span class="text-emerald-500 text-[10px]">⏱️</span>
-          <span id="digital-clock" class="font-digital text-sm tracking-wider text-emerald-400 bg-slate-950 px-2 py-0.5 rounded border border-emerald-950">00:00:00</span>
-        </div>
+        <a href="admin.html" class="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-3 py-1.5 rounded-lg text-xs transition duration-200">
+          <i class="fas fa-user-shield mr-1"></i> Staff Portal
+        </a>
       </div>
 
-    </div>
-  </div>
-
-  <!-- ================= MAIN NAVIGATION ================= -->
-  <header class="border-b border-slate-800 bg-slate-950/90 backdrop-blur sticky top-0 z-40">
-    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <span class="text-lg md:text-xl font-bold tracking-wider text-white">XR6 LABS HQ</span>
-        <span class="text-[10px] bg-emerald-950 text-emerald-400 border border-emerald-800/80 px-2.5 py-0.5 rounded-full uppercase tracking-wider font-semibold">Research Hub</span>
-      </div>
-      <nav class="hidden lg:flex space-x-7 text-xs font-medium text-slate-300">
-        <a href="#about" class="hover:text-emerald-400 transition">About & Ethics</a>
-        <a href="#pillars" class="hover:text-emerald-400 transition">Core Pillars</a>
-        <a href="#directory" class="hover:text-emerald-400 transition">Team Directory</a>
-        <a href="#library" class="hover:text-emerald-400 transition">Zenodo Repository</a>
-        <a href="#gallery" class="hover:text-emerald-400 transition">R&D Gallery</a>
-        <a href="#podcast" class="hover:text-emerald-400 transition">AI Podcast</a>
-        <a href="#bsa" class="hover:text-emerald-400 transition">XR6 BSA</a>
-      </nav>
-      <div class="flex items-center space-x-3">
-        <button onclick="toggleAuthModal()" class="inline-flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold px-4 py-2 rounded-lg shadow-sm transition">
-          <svg class="w-3.5 h-3.5 fill-[#A6CE39]" viewBox="0 0 256 256"><path d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zm-35.4 186.2H66.8V89.4h25.8v96.8zm-12.9-109.8c-8.3 0-15-6.7-15-15s6.7-15 15-15 15 6.7 15 15-6.7 15-15 15zm107.1 109.8h-25.2v-47.5c0-12.7-.3-29-17.7-29-17.7 0-20.4 13.8-20.4 28v48.5h-25.2V89.4h24.2v13.2h.3c3.4-6.4 11.6-13.2 24-13.2 25.7 0 30.4 16.9 30.4 38.9v57.9z"/></svg>
-          <span>Researcher Portal</span>
-        </button>
-      </div>
     </div>
   </header>
 
-  <main class="flex-grow">
-
-    <!-- ================= HERO SECTION ================= -->
-    <section class="max-w-7xl mx-auto px-6 pt-16 pb-12 text-center">
-      <div class="inline-flex items-center space-x-2 px-3 py-1 mb-5 text-[11px] font-semibold text-emerald-300 bg-emerald-950/50 border border-emerald-800/80 rounded-full">
-        <span>Institutional Research Hub • Ref: 1502112362</span>
+  <!-- NEWS & DAKWAH TICKER -->
+  <section class="bg-emerald-950/40 border-b border-emerald-900/40 py-2 px-4 text-xs text-emerald-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 overflow-hidden">
+        <span class="bg-emerald-800 text-white px-2 py-0.5 rounded font-bold uppercase text-[10px] tracking-wider">Announcement</span>
+        <marquee class="tracking-wide">
+          Welcome to the Open Research Hub of XR6 Labs HQ. Exploring Biomedical AI, Molecular Simulations, and Qur'anic Reflections for Public Knowledge & Spiritual Upliftment.
+        </marquee>
       </div>
-      <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto">
-        Verifiable Biomedical AI, Resilient Systems &amp; Ethical Islamic Technology
-      </h1>
-      <p class="mt-5 max-w-3xl mx-auto text-sm md:text-base text-slate-400 leading-relaxed">
-        Pioneering open, reproducible scientific discovery across molecular dynamics, virtual bio-compute labs, and post-quantum network resilience under the international DORA and CoARA evaluation frameworks.
+    </div>
+  </section>
+
+  <!-- HERO SECTION -->
+  <main class="max-w-7xl mx-auto px-4 py-10 flex-grow">
+    
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-emerald-400 font-semibold tracking-wider text-xs uppercase bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-800/50">
+        Open Science & Spiritual Contemplation
+      </span>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-white mt-4 mb-4 tracking-tight leading-tight">
+        Advancing Biomedical Science & Illuminating Hearts
+      </h2>
+      <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+        An open platform bridging computational life sciences, molecular engineering, and authentic Qur'anic recitations to enrich humanity through knowledge and faith.
       </p>
-      <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <a href="#library" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-100 text-xs font-semibold px-5 py-3 rounded-lg transition">
-          Browse Zenodo DOIs
-        </a>
-        <a href="https://www.cambridge.org/core/idp/1502112362_XR6LHQ" target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold px-5 py-3 rounded-lg shadow-sm transition">
-          Cambridge Core (WAYFless Login) ↗
-        </a>
-      </div>
-    </section>
+    </div>
 
-    <!-- ================= LIVE ANNOUNCEMENTS / NEWS TICKER ================= -->
-    <section class="border-y border-slate-800/80 bg-slate-900/60 py-6">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div class="flex items-center space-x-3">
-            <span class="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded border border-emerald-500/30">Latest Dispatch</span>
-            <p id="news-headline" class="text-xs text-slate-200 font-medium">
-              XR6 Labs HQ establishes verified academic subdomain ac.xr6labs.com &amp; connects institutional federated repository access.
-            </p>
-          </div>
-          <!-- Butang Perkongsian Sosial -->
-          <div class="flex items-center space-x-2 text-xs">
-            <span class="text-slate-500 text-[11px]">Share:</span>
-            <button onclick="shareArticle('whatsapp')" class="bg-slate-800 hover:bg-emerald-900/40 text-slate-300 hover:text-emerald-300 p-2 rounded border border-slate-700 transition" title="Share on WhatsApp">
-              💬
-            </button>
-            <button onclick="shareArticle('linkedin')" class="bg-slate-800 hover:bg-sky-900/40 text-slate-300 hover:text-sky-300 p-2 rounded border border-slate-700 transition" title="Share on LinkedIn">
-              💼
-            </button>
-            <button onclick="shareArticle('x')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white p-2 rounded border border-slate-700 transition" title="Share on X">
-              𝕏
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= THREE CORE PILLARS ================= -->
-    <section id="pillars" class="py-16 max-w-7xl mx-auto px-6">
-      <div class="text-center mb-12">
-        <h2 class="text-2xl font-bold text-white tracking-tight">The Three Foundations of Science</h2>
-        <p class="text-xs text-slate-400 mt-2 max-w-xl mx-auto">Knowledge stewardship rooted in divine guidance, advanced biotechnology, and cryptographic computing.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-        
-        <!-- Pillar 1: Islamic Study -->
-        <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl relative hover:border-emerald-500/50 transition">
-          <div class="w-10 h-10 rounded-lg bg-emerald-950/80 border border-emerald-800/80 flex items-center justify-center text-lg mb-4 text-emerald-400 font-bold">
-            🕋
-          </div>
-          <h3 class="text-base font-bold text-white mb-2">Islamic Study &amp; Ethics</h3>
-          <p class="text-xs text-slate-400 leading-relaxed mb-4">
-            Grounding technological progress in <em>Amanah</em> (intellectual trust) and Quranic contemplation. Research is executed as an act of sincere worship and verifiable stewardship for the public good.
-          </p>
-          <span class="text-[10px] text-emerald-400 font-mono bg-slate-950 px-2 py-1 rounded border border-slate-800">Verified by PI Review</span>
-        </div>
-
-        <!-- Pillar 2: Biomedical Science -->
-        <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl relative hover:border-emerald-500/50 transition">
-          <div class="w-10 h-10 rounded-lg bg-emerald-950/80 border border-emerald-800/80 flex items-center justify-center text-lg mb-4 text-emerald-400 font-bold">
-            🧬
-          </div>
-          <h3 class="text-base font-bold text-white mb-2">Biomedical &amp; Bio-AI</h3>
-          <p class="text-xs text-slate-400 leading-relaxed mb-4">
-            Protein synthesis modeling, proteolytic cleavage analysis, and spatial VR virtual laboratories integrating directly with global scientific databases (NCBI, NIH GEO, PubMed)[cite: 20].
-          </p>
-          <span class="text-[10px] text-emerald-400 font-mono bg-slate-950 px-2 py-1 rounded border border-slate-800">Verified by PI Review</span>
-        </div>
-
-        <!-- Pillar 3: Digital Technology -->
-        <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl relative hover:border-emerald-500/50 transition">
-          <div class="w-10 h-10 rounded-lg bg-emerald-950/80 border border-emerald-800/80 flex items-center justify-center text-lg mb-4 text-emerald-400 font-bold">
-            💻
-          </div>
-          <h3 class="text-base font-bold text-white mb-2">Digital Systems &amp; PQC</h3>
-          <p class="text-xs text-slate-400 leading-relaxed mb-4">
-            Eco-compute cluster optimization, post-quantum cryptographic security nodes (PQC), Merkle Tree state integrity auditing, and multi-agent LLM verification pipelines[cite: 20].
-          </p>
-          <span class="text-[10px] text-emerald-400 font-mono bg-slate-950 px-2 py-1 rounded border border-slate-800">Verified by PI Review</span>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= TEAM & LEADERSHIP DIRECTORY ================= -->
-    <section id="directory" class="py-16 bg-slate-900/40 border-t border-slate-800">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-12">
-          <h2 class="text-2xl font-bold text-white tracking-tight">Research Faculty &amp; Directory</h2>
-          <p class="text-xs text-slate-400 mt-1">Leadership and scientific personnel of XR6 Labs HQ.</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 items-start">
-          <!-- Profile Dr. Rahmat -->
-          <div class="bg-slate-950 border border-slate-800 p-6 rounded-xl flex flex-col justify-between">
-            <div>
-              <div class="flex items-center space-x-4 mb-4">
-                <div class="w-14 h-14 rounded-full bg-slate-800 border-2 border-emerald-500 flex items-center justify-center text-xl font-bold text-emerald-400">
-                  DR
-                </div>
-                <div>
-                  <h3 class="text-base font-bold text-white">Dr. Mohd Rahmat Nasyaa Bin Zulkifli</h3>
-                  <p class="text-xs text-emerald-400 font-medium">Principal Investigator &amp; Doctoral Systems Architect</p>
-                  <p class="text-[11px] text-slate-400">PhD Computer &amp; Info Sciences (Cambridge Life Sciences / XR6 Labs HQ)[cite: 20]</p>
-                </div>
-              </div>
-              <p class="text-xs text-slate-400 leading-relaxed mb-4">
-                Specializing in Medical Bio-Engineering and Biomedical AI, protein synthesis formulation, proteolytic cleavage, and molecular simulations[cite: 20]. Leading verifiable research engineering, eco-compute frameworks, and international institutional partnerships with Cambridge University Press and EU-COST networks[cite: 20].
-              </p>
-            </div>
-            <div class="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-3 text-xs">
-              <a href="https://orcid.org/0009-0007-5013-7995" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-[#A6CE39] hover:underline font-mono text-[11px]">
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 256 256"><path d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zm-35.4 186.2H66.8V89.4h25.8v96.8zm-12.9-109.8c-8.3 0-15-6.7-15-15s6.7-15 15-15 15 6.7 15 15-6.7 15-15 15zm107.1 109.8h-25.2v-47.5c0-12.7-.3-29-17.7-29-17.7 0-20.4 13.8-20.4 28v48.5h-25.2V89.4h24.2v13.2h.3c3.4-6.4 11.6-13.2 24-13.2 25.7 0 30.4 16.9 30.4 38.9v57.9z"/></svg>
-                <span>0009-0007-5013-7995</span>
-              </a>
-              <a href="mailto:drmrnmez@ac.xr6labs.com" class="text-slate-400 hover:text-white">
-                drmrnmez@ac.xr6labs.com
-              </a>
-            </div>
-          </div>
-
-          <!-- Future Team / Affiliate Slots -->
-          <div class="bg-slate-950/60 border border-slate-800/60 border-dashed p-6 rounded-xl flex flex-col justify-between h-full">
-            <div>
-              <div class="flex items-center space-x-4 mb-4">
-                <div class="w-14 h-14 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-xl text-slate-500">
-                  👥
-                </div>
-                <div>
-                  <h3 class="text-base font-bold text-white">Visiting Fellows &amp; Research Scholars</h3>
-                  <p class="text-xs text-slate-400">XR6 BSA Graduate &amp; Postdoctoral Cohort</p>
-                </div>
-              </div>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">
-                Positions for affiliate scientists, data engineers, and student researchers undergoing specialized computational biology training under the XR6 BSA curriculum.
-              </p>
-            </div>
-            <div class="pt-4 border-t border-slate-800/80 text-xs">
-              <a href="mailto:hq@ac.xr6labs.com?subject=Affiliation%20Inquiry" class="text-emerald-400 hover:underline">
-                Apply for Institutional Affiliation →
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= ZENODO RESEARCH LIBRARY ================= -->
-    <section id="library" class="py-16 max-w-7xl mx-auto px-6 border-t border-slate-800">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
-        <div>
-          <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">Open-Access Science</span>
-          <h2 class="text-2xl font-bold text-white mt-2">Institutional Zenodo Library</h2>
-          <p class="text-xs text-slate-400 mt-1 max-w-xl">
-            Live catalog of preprints, datasets, and codebase publications deposited to the official Zenodo community with permanent citable DOIs.
-          </p>
-        </div>
-        <div class="mt-4 md:mt-0 flex gap-2">
-          <a href="https://zenodo.org/communities/xr6labs-hub" target="_blank" rel="noopener" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs px-3.5 py-2 rounded-lg border border-slate-700 transition">
-            Zenodo Community ↗
-          </a>
-          <button onclick="toggleAuthModal()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs px-3.5 py-2 rounded-lg transition font-semibold">
-            Deposit Paper
-          </button>
-        </div>
-      </div>
-
-      <div id="papers-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Default Verified Foundational Papers -->
-        <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-center text-[10px] text-slate-400 mb-2 font-mono">
-              <span class="text-emerald-400 uppercase font-bold">Preprint</span>
-              <span>2026-10</span>
-            </div>
-            <h4 class="text-sm font-bold text-white leading-snug">Verifiable Eco-Compute Architectures in Biomedical AI Pipelines</h4>
-            <p class="text-[11px] text-slate-400 mt-1 italic">Dr. Mohd Rahmat Nasyaa Bin Zulkifli</p>
-            <p class="text-xs text-slate-500 mt-3 leading-relaxed">
-              Evaluating asynchronous verification loops, Merkle Tree integrity states, and zero-knowledge proofs for biological data pipelines[cite: 20].
-            </p>
-          </div>
-          <div class="mt-5 pt-3 border-t border-slate-800 flex justify-between items-center text-xs">
-            <span class="text-[10px] font-mono text-emerald-400">DOI: 10.5281/zenodo.xr6.001</span>
-            <a href="https://zenodo.org" target="_blank" rel="noopener" class="text-[11px] text-slate-300 bg-slate-800 px-2 py-1 rounded hover:bg-slate-700">PDF</a>
-          </div>
-        </div>
-
-        <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-center text-[10px] text-slate-400 mb-2 font-mono">
-              <span class="text-emerald-400 uppercase font-bold">Methodology</span>
-              <span>2026-09</span>
-            </div>
-            <h4 class="text-sm font-bold text-white leading-snug">Proteolytic Cleavage &amp; Virtual Reality Laboratory Simulation</h4>
-            <p class="text-[11px] text-slate-400 mt-1 italic">Dr. Mohd Rahmat Nasyaa Bin Zulkifli</p>
-            <p class="text-xs text-slate-500 mt-3 leading-relaxed">
-              Coupling local bio-compute hardware with NCBI/NIH GEO databases for accelerated drug discovery and immuno-oncology modeling[cite: 20].
-            </p>
-          </div>
-          <div class="mt-5 pt-3 border-t border-slate-800 flex justify-between items-center text-xs">
-            <span class="text-[10px] font-mono text-emerald-400">DOI: 10.5281/zenodo.xr6.002</span>
-            <a href="https://zenodo.org" target="_blank" rel="noopener" class="text-[11px] text-slate-300 bg-slate-800 px-2 py-1 rounded hover:bg-slate-700">PDF</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= R&D FIELD GALLERY ================= -->
-    <section id="gallery" class="py-16 bg-slate-900/30 border-t border-slate-800">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-10">
-          <h2 class="text-2xl font-bold text-white tracking-tight">R&amp;D Visual Archive &amp; Virtual Labs</h2>
-          <p class="text-xs text-slate-400 mt-1">Spatial VR environments, compute topologies, and experimental milestones.</p>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div class="bg-slate-900 border border-slate-800 rounded-lg p-3 text-center">
-            <div class="h-32 bg-slate-950 rounded flex items-center justify-center text-2xl mb-2 text-slate-600">🔬</div>
-            <p class="text-[11px] font-semibold text-slate-300">Molecular Docking</p>
-            <p class="text-[9px] text-slate-500 font-mono">Simulation Node Alpha</p>
-          </div>
-          <div class="bg-slate-900 border border-slate-800 rounded-lg p-3 text-center">
-            <div class="h-32 bg-slate-950 rounded flex items-center justify-center text-2xl mb-2 text-slate-600">🥽</div>
-            <p class="text-[11px] font-semibold text-slate-300">Spatial XR Interface</p>
-            <p class="text-[9px] text-slate-500 font-mono">Virtual Wet-Lab</p>
-          </div>
-          <div class="bg-slate-900 border border-slate-800 rounded-lg p-3 text-center">
-            <div class="h-32 bg-slate-950 rounded flex items-center justify-center text-2xl mb-2 text-slate-600">🖥️</div>
-            <p class="text-[11px] font-semibold text-slate-300">Eco-Compute Cluster</p>
-            <p class="text-[9px] text-slate-500 font-mono">2-Hour Low-Latency Pipeline[cite: 20]</p>
-          </div>
-          <div class="bg-slate-900 border border-slate-800 rounded-lg p-3 text-center">
-            <div class="h-32 bg-slate-950 rounded flex items-center justify-center text-2xl mb-2 text-slate-600">🎓</div>
-            <p class="text-[11px] font-semibold text-slate-300">XR6 BSA Academy</p>
-            <p class="text-[9px] text-slate-500 font-mono">DataCamp Classroom</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= AI PODCAST & MEDIA (NOTEBOOKLM) ================= -->
-    <section id="podcast" class="py-16 max-w-7xl mx-auto px-6 border-t border-slate-800">
-      <div class="max-w-2xl mx-auto text-center mb-8">
-        <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">Synthetic AI Dialogs</span>
-        <h2 class="text-2xl font-bold text-white mt-2">The Faith &amp; Science Bio-Compute Podcast</h2>
-        <p class="text-xs text-slate-400 mt-1">Deep synthetic audio discussions synthesizing preprints and molecular science generated via NotebookLM.</p>
-      </div>
-      <div class="max-w-xl mx-auto bg-slate-900 border border-slate-800 p-6 rounded-xl">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="w-10 h-10 rounded-full bg-emerald-950 border border-emerald-800 flex items-center justify-center text-emerald-400 text-lg">
-            🎙️
-          </div>
-          <div>
-            <h4 class="text-xs font-bold text-white">Episode 1: Molecular Cleavage, Quantum Nodes &amp; Epistemic Trust</h4>
-            <p class="text-[10px] text-slate-400">NotebookLM Synthesized Discussion • 14 Mins</p>
-          </div>
-        </div>
-        <audio controls class="w-full">
-          <source src="/podcast-ep1.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-    </section>
-
-    <!-- ================= XR6 BSA & DATACAMP ================= -->
-    <section id="bsa" class="py-16 bg-slate-900/50 border-t border-slate-800">
-      <div class="max-w-7xl mx-auto px-6 text-center">
-        <h2 class="text-2xl font-bold text-white">XR6 Brilliant School &amp; Academy (XR6 BSA)</h2>
-        <p class="text-xs text-slate-400 max-w-2xl mx-auto mt-2 leading-relaxed">
-          The virtual educational campus of XR6 Labs HQ providing specialized data science, Python programming, and biomedical AI curriculums in partnership with DataCamp.
+    <!-- AFFILIATIONS & INSTITUTIONAL COMPLIANCE BADGES -->
+    <section class="mb-14">
+      <div class="text-center mb-6">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest">
+          Research Frameworks & International Collaborations
         </p>
-        <div class="mt-6">
-          <a href="mailto:hq@ac.xr6labs.com?subject=XR6%20BSA%20Enrollment" class="text-xs text-emerald-400 hover:text-emerald-300 font-semibold underline">
-            Inquire for Academic Admissions &amp; Certifications →
-          </a>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3 items-center justify-center text-center">
+        <!-- DORA -->
+        <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition">
+          <p class="text-sm font-bold text-slate-200">DORA</p>
+          <span class="text-[10px] text-slate-400">Declaration on Research Assessment</span>
+        </div>
+        <!-- CoARA -->
+        <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition">
+          <p class="text-sm font-bold text-slate-200">CoARA</p>
+          <span class="text-[10px] text-slate-400">Advancing Research Assessment</span>
+        </div>
+        <!-- Cambridge Core -->
+        <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition">
+          <p class="text-sm font-bold text-slate-200">Cambridge Core</p>
+          <span class="text-[10px] text-slate-400">Cambridge Open Engage</span>
+        </div>
+        <!-- ORCID -->
+        <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition">
+          <p class="text-sm font-bold text-slate-200">ORCID</p>
+          <span class="text-[10px] text-emerald-400">0009-0007-5013-7995</span>
+        </div>
+        <!-- Zenodo -->
+        <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition col-span-2 md:col-span-1">
+          <p class="text-sm font-bold text-slate-200">Zenodo</p>
+          <span class="text-[10px] text-slate-400">xr6labs-hub (CERN)</span>
         </div>
       </div>
+    </section>
+
+    <!-- QUR'ANIC AUDIO GALLERY (DA'WAH & REFLECTION) -->
+    <section class="mb-14 bg-gradient-to-b from-slate-900 to-slate-900/40 rounded-2xl p-6 md:p-8 border border-emerald-900/30">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-3">
+        <div>
+          <span class="text-emerald-400 text-xs font-semibold uppercase tracking-wider">Public Audio Repository</span>
+          <h3 class="text-2xl font-bold text-white flex items-center gap-2 mt-1">
+            <i class="fas fa-quran text-emerald-400"></i> Galeri Tilawah & Renungan Al-Quran
+          </h3>
+          <p class="text-xs text-slate-400 mt-1">
+            Rakaman bacaan ayat suci Al-Quran yang dijana dan diperhalusi menggunakan teknologi AI Studio untuk santapan rohani masyarakat.
+          </p>
+        </div>
+        <span class="bg-emerald-900/40 text-emerald-300 text-xs px-3 py-1 rounded-full border border-emerald-700/50">
+          <i class="fas fa-headphones mr-1.5"></i> Audio Awam Terbuka
+        </span>
+      </div>
+
+      <!-- Audio Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="audio-gallery-container">
+        
+        <!-- Track 1 -->
+        <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-bold text-emerald-400">Surah Al-Mulk (Ayat 1–10)</span>
+              <span class="text-[10px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded">AI Audio Master</span>
+            </div>
+            <p class="text-xs text-slate-300 mb-3 font-amiri text-right text-base text-slate-200">
+              تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ
+            </p>
+          </div>
+          <!-- Audio Player -->
+          <audio controls class="w-full h-8 mt-2 accent-emerald-500 rounded">
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Pelayar anda tidak menyokong pemain audio.
+          </audio>
+        </div>
+
+        <!-- Track 2 -->
+        <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-bold text-emerald-400">Surah Ar-Rahman (Ayat 1–16)</span>
+              <span class="text-[10px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded">AI Audio Master</span>
+            </div>
+            <p class="text-xs text-slate-300 mb-3 font-amiri text-right text-base text-slate-200">
+              فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ
+            </p>
+          </div>
+          <!-- Audio Player -->
+          <audio controls class="w-full h-8 mt-2 accent-emerald-500 rounded">
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+            Pelayar anda tidak menyokong pemain audio.
+          </audio>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESEARCH PORTFOLIO HIGHLIGHTS -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Card 1: Biomedical AI -->
+      <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
+        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+          <i class="fas fa-dna text-lg"></i>
+        </div>
+        <h4 class="text-lg font-bold text-white mb-2">Biomedical AI & Molecular Simulation</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Penyelidikan sintesis protein, pembelahan proteolitik (*proteolytic cleavage*), dan simulasi molekul berbantu kecerdasan buatan.
+        </p>
+      </div>
+
+      <!-- Card 2: Open Access -->
+      <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
+        <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+          <i class="fas fa-book-open text-lg"></i>
+        </div>
+        <h4 class="text-lg font-bold text-white mb-2">Open Academic Repository</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Kertas kerja dan data penyelidikan terbuka diindeks di Zenodo CERN dan Cambridge Open Engage demi manfaat masyarakat sejagat.
+        </p>
+      </div>
+
+      <!-- Card 3: Principal Investigator Profile -->
+      <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
+        <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4">
+          <i class="fas fa-user-graduate text-lg"></i>
+        </div>
+        <h4 class="text-lg font-bold text-white mb-2">Lead Researcher</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Diketuai oleh <strong>Dr. Mohd Rahmat Nasyaa Bin Zulkifli</strong> — Penyelidik Sains Komputer, Bioperubatan & Seni Bina Sistem XR6 Labs HQ.
+        </p>
+      </div>
+
     </section>
 
   </main>
 
-  <!-- ================= AUTH MODAL (RESEARCHER LOGIN) ================= -->
-  <div id="auth-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4">
-    <div class="bg-slate-900 border border-slate-800 w-full max-w-md p-6 rounded-xl shadow-2xl relative">
-      <button onclick="toggleAuthModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
-      <div class="text-center mb-6">
-        <h3 class="text-base font-bold text-white">Researcher Gateway</h3>
-        <p class="text-xs text-slate-400 mt-1">Access Cambridge Core WAYFless, Zenodo deposits, and dashboard tools.</p>
-      </div>
-      <!-- ORCID Login -->
-      <a href="https://orcid.org/oauth/authorize?client_id=APP-N9KX4V12N04UTR4G&response_type=code&scope=/authenticate&redirect_uri=https://ac.xr6labs.com/api/auth/callback/orcid" 
-         class="flex items-center justify-center space-x-2 w-full bg-[#A6CE39]/10 hover:bg-[#A6CE39]/20 border border-[#A6CE39]/40 text-[#A6CE39] py-2.5 px-4 rounded-lg text-xs font-semibold transition mb-3">
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 256 256"><path d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zm-35.4 186.2H66.8V89.4h25.8v96.8zm-12.9-109.8c-8.3 0-15-6.7-15-15s6.7-15 15-15 15 6.7 15 15-6.7 15-15 15zm107.1 109.8h-25.2v-47.5c0-12.7-.3-29-17.7-29-17.7 0-20.4 13.8-20.4 28v48.5h-25.2V89.4h24.2v13.2h.3c3.4-6.4 11.6-13.2 24-13.2 25.7 0 30.4 16.9 30.4 38.9v57.9z"/></svg>
-        <span>Sign in with ORCID iD</span>
-      </a>
-      <!-- Google Login -->
-      <a href="/api/auth/google" class="flex items-center justify-center space-x-2 w-full bg-white hover:bg-slate-100 text-slate-900 py-2.5 px-4 rounded-lg text-xs font-semibold transition mb-3 shadow">
-        <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
-        <span>Continue with Google</span>
-      </a>
-      <div class="pt-3 border-t border-slate-800 text-center">
-        <a href="/admin" class="text-[10px] text-slate-500 hover:text-emerald-400">Admin Control Gateway (Dr. Rahmat) →</a>
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-6 text-xs text-slate-500 text-center">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-3">
+      <p>&copy; 2026 XR6 Labs HQ. All Rights Reserved. Open Science for Humanity.</p>
+      <div class="flex items-center gap-4">
+        <a href="https://orcid.org/0009-0007-5013-7995" target="_blank" class="hover:text-emerald-400 transition">ORCID</a>
+        <a href="https://ac.xr6labs.com" class="hover:text-emerald-400 transition">Research Hub</a>
+        <a href="https://www.xr6labs.com" class="hover:text-emerald-400 transition">XR6 Engineering</a>
       </div>
     </div>
-  </div>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
-    <p>© 2026 XR6 Labs (HQ) — Research &amp; Engineering. All rights reserved.</p>
-    <p class="mt-1">
-      Official Academic Subdomain: <span class="text-slate-400 font-mono">ac.xr6labs.com</span> | Editorial Desk: <span class="text-slate-400 font-mono">hq@ac.xr6labs.com</span>
-    </p>
   </footer>
 
-  <!-- ================= JAVASCRIPT: REAL-TIME TIME & LOGIC ================= -->
+  <!-- SCRIPT JAM & KALENDAR -->
   <script>
-    // 1. Logik Jam Digital & Kalendar Miladi & Hijriah
-    function updateClockAndDates() {
+    function updateClockAndCalendar() {
       const now = new Date();
+      // Time (MYT)
+      const timeStr = now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Kuala_Lumpur' });
+      const timeEl = document.getElementById('live-time');
+      if (timeEl) timeEl.textContent = timeStr;
 
-      // Format Jam Digital (HH:MM:SS)
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      const seconds = String(now.getSeconds()).padStart(2, '0');
-      document.getElementById('digital-clock').textContent = `${hours}:${minutes}:${seconds}`;
-
-      // Format Tarikh Miladi
-      const miladiOptions = { day: 'numeric', month: 'long', year: 'numeric' };
-      document.getElementById('miladi-date').textContent = now.toLocaleDateString('en-GB', miladiOptions);
-
-      // Format Kalendar Hijriah (Menggunakan penentu Islamik u-ca-islamic-umalqura)
+      // Date (Miladi)
+      const dateStr = now.toLocaleDateString('en-MY', {
+        timeZone: 'Asia/Kuala_Lumpur',
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      });
+      
+      // Hijri Date
+      let hijriStr = "";
       try {
-        const hijriOptions = { day: 'numeric', month: 'long', year: 'numeric' };
-        const hijriFormatter = new Intl.DateTimeFormat('en-u-ca-islamic-umalqura', hijriOptions);
-        document.getElementById('hijri-date').textContent = hijriFormatter.format(now) + " AH";
+        hijriStr = new Intl.DateTimeFormat('en-u-ca-islamic-umalqura', {
+          timeZone: 'Asia/Kuala_Lumpur',
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        }).format(now);
       } catch (e) {
-        document.getElementById('hijri-date').textContent = "13 Jumada al-Ula 1448 AH";
-      }
-    }
-    setInterval(updateClockAndDates, 1000);
-    updateClockAndDates();
-
-    // 2. Logik Perkongsian Media Sosial
-    function shareArticle(platform) {
-      const shareUrl = encodeURIComponent("https://ac.xr6labs.com");
-      const title = encodeURIComponent("XR6 Labs HQ — Research Hub: Verifiable Biomedical AI & Ethical Science");
-      let url = "";
-
-      if (platform === 'whatsapp') {
-        url = `https://api.whatsapp.com/send?text=${title}%20${shareUrl}`;
-      } else if (platform === 'linkedin') {
-        url = `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`;
-      } else if (platform === 'x') {
-        url = `https://twitter.com/intent/tweet?text=${title}&url=${shareUrl}`;
+        hijriStr = "Hijriah";
       }
 
-      window.open(url, '_blank', 'width=600,height=400');
+      const dateEl = document.getElementById('live-date');
+      if (dateEl) dateEl.textContent = `${dateStr} / ${hijriStr}`;
     }
-
-    // 3. Modal Toggler
-    function toggleAuthModal() {
-      const modal = document.getElementById('auth-modal');
-      modal.classList.toggle('hidden');
-    }
+    setInterval(updateClockAndCalendar, 1000);
+    updateClockAndCalendar();
   </script>
 </body>
 </html>
