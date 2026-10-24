@@ -53,6 +53,12 @@
       backdrop-filter: blur(12px);
     }
 
+    /* Kalimah Bismillah Gold Glow */
+    .bismillah-gold {
+      color: #FBBF24;
+      text-shadow: 0 0 12px rgba(245, 158, 11, 0.6), 0 0 25px rgba(249, 115, 22, 0.3);
+    }
+
     audio::-webkit-media-controls-panel {
       background-color: #161B22;
       color: #06B6D4;
@@ -65,7 +71,7 @@
   <header class="border-b border-slate-800/80 bg-iron-black/90 backdrop-blur-md sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-col md:flex-row justify-between items-center gap-3">
       
-      <!-- Logo Branding -->
+      <!-- Brand Logo -->
       <div class="flex items-center gap-3">
         <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-power-orange via-chem-cyan to-electric-blue p-0.5 shadow-lg">
           <div class="h-full w-full bg-iron-black rounded-[7px] flex items-center justify-center">
@@ -81,21 +87,27 @@
         </div>
       </div>
 
-      <!-- Controls: Clock, Dual Language, Researcher Login & Admin Portal -->
-      <div class="flex flex-wrap items-center justify-center gap-2.5 text-xs">
+      <!-- Controls: Navigation Jump, Dual Language, Researcher Register/Login & Admin -->
+      <div class="flex flex-wrap items-center justify-center gap-2 text-xs">
         
-        <!-- Malaysian System Clock -->
-        <div class="forged-panel px-2.5 py-1.5 rounded-lg border border-slate-700/60 text-slate-300 flex items-center gap-2">
+        <!-- Pautan Pantas ke Galeri & Tilawah -->
+        <a href="#quran-gallery" class="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-horizon-green/40 text-horizon-green hover:bg-horizon-green hover:text-iron-black text-xs font-rajdhani font-bold transition flex items-center gap-1.5">
+          <i class="fas fa-quran text-power-orange"></i>
+          <span>TILAWAH</span>
+        </a>
+        <a href="#multimedia-gallery" class="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-chem-cyan/40 text-chem-cyan hover:bg-chem-cyan hover:text-iron-black text-xs font-rajdhani font-bold transition flex items-center gap-1.5">
+          <i class="fas fa-photo-video text-chem-cyan"></i>
+          <span>GALERI</span>
+        </a>
+
+        <!-- System Clock -->
+        <div class="forged-panel px-2.5 py-1.5 rounded-lg border border-slate-700/60 text-slate-300 hidden sm:flex items-center gap-1.5">
           <i class="far fa-clock text-chem-cyan"></i>
           <span id="live-time" class="font-mono text-white tracking-wider">--:--:--</span>
           <span class="text-[9px] text-power-orange font-bold font-rajdhani">MYT</span>
         </div>
-        <div class="forged-panel px-2.5 py-1.5 rounded-lg border border-slate-700/60 text-slate-300 hidden lg:flex items-center gap-1.5">
-          <i class="far fa-calendar-alt text-horizon-green"></i>
-          <span id="live-date" class="font-rajdhani font-semibold">Loading...</span>
-        </div>
 
-        <!-- LANGUAGE SWITCHER (EN UK / BM) -->
+        <!-- Penukar Bahasa -->
         <div class="forged-panel p-1 rounded-lg border border-slate-700/60 flex items-center gap-1">
           <button id="btn-lang-bm" onclick="setLanguage('bm')" class="px-2 py-1 rounded text-[11px] font-bold font-rajdhani bg-emerald-600 text-white transition">
             🇲🇾 BM
@@ -105,14 +117,19 @@
           </button>
         </div>
 
-        <!-- RESEARCHER SIGN IN -->
-        <button onclick="openLoginModal()" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-chem-cyan hover:text-white font-rajdhani font-bold px-3 py-1.5 rounded-lg text-xs tracking-wider transition flex items-center gap-1.5">
+        <!-- Butang Log Masuk & Daftar Penyelidik -->
+        <button onclick="openLoginModal('login')" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-chem-cyan hover:text-white font-rajdhani font-bold px-3 py-1.5 rounded-lg text-xs tracking-wider transition flex items-center gap-1.5">
           <i class="fas fa-id-badge text-horizon-green"></i>
           <span data-i18n="nav_researcher_login">LOG MASUK PENYELIDIK</span>
         </button>
 
-        <!-- ADMIN PORTAL -->
-        <a href="admin.html" class="bg-gradient-to-r from-electric-blue to-chem-cyan hover:brightness-110 text-white font-rajdhani font-bold px-3 py-1.5 rounded-lg text-xs tracking-wider transition shadow-lg shadow-electric-blue/20 flex items-center gap-1">
+        <button onclick="openLoginModal('register')" class="bg-gradient-to-r from-power-orange to-amber-600 hover:brightness-110 text-white font-rajdhani font-bold px-3 py-1.5 rounded-lg text-xs tracking-wider transition shadow-lg shadow-power-orange/20 flex items-center gap-1">
+          <i class="fas fa-user-plus"></i>
+          <span data-i18n="nav_researcher_register">DAFTAR AKAUN</span>
+        </button>
+
+        <!-- Admin Portal -->
+        <a href="admin.html" class="bg-slate-900 border border-electric-blue/50 text-electric-blue hover:bg-electric-blue hover:text-white font-rajdhani font-bold px-3 py-1.5 rounded-lg text-xs tracking-wider transition flex items-center gap-1">
           <i class="fas fa-user-shield"></i>
           <span data-i18n="nav_admin">ADMIN</span>
         </a>
@@ -141,29 +158,45 @@
   <!-- MAIN CONTAINER -->
   <main class="max-w-7xl mx-auto px-4 py-8 flex-grow space-y-12">
     
-    <!-- 4D DISPLAY HEADER (cX CORE INTEGRITY DISPLAY) -->
+    <!-- 4D DISPLAY BOARD COMPUTER HEADER DENGAN BISMILLAH JAWI TASKHEEL -->
     <section class="relative rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl group">
-      <div class="relative w-full h-72 sm:h-96 md:h-[430px] bg-slate-950 overflow-hidden">
+      <div class="relative w-full h-80 sm:h-96 md:h-[460px] bg-slate-950 overflow-hidden flex items-center justify-center">
+        <!-- Background Img Board Komputer -->
         <img 
           src="1000034990.png" 
           alt="XR6 Labs HQ cX 4D Core Integrity Auditing Display" 
           class="w-full h-full object-cover object-center transform group-hover:scale-105 transition duration-700 ease-out"
           onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80';"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-iron-black via-iron-black/40 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-iron-black/80 via-transparent to-iron-black/80"></div>
+        
+        <!-- Overlays -->
+        <div class="absolute inset-0 bg-gradient-to-t from-iron-black via-iron-black/50 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-iron-black/85 via-transparent to-iron-black/85"></div>
+
+        <!-- KALIMAH BISMILLAH JAWI TASKHEEL DI DALAM BOARD KOMPUTER (CENTERED GOLDEN EMBED) -->
+        <div class="absolute z-20 text-center px-4 max-w-3xl transform -translate-y-4">
+          <div class="inline-block p-4 sm:p-6 rounded-2xl bg-iron-black/75 backdrop-blur-md border border-amber-500/30 shadow-2xl shadow-amber-500/10">
+            <h1 class="font-amiri text-3xl sm:text-4xl md:text-5xl bismillah-gold tracking-wide leading-relaxed">
+              بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+            </h1>
+            <div class="flex items-center justify-center gap-2 mt-2">
+              <span class="h-px w-8 bg-amber-500/40"></span>
+              <span class="text-[10px] sm:text-xs font-orbitron tracking-widest text-chem-cyan font-bold uppercase">
+                CORE INTEGRITY AUDITING • VERIFIABLE SCIENCE
+              </span>
+              <span class="h-px w-8 bg-amber-500/40"></span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+      <!-- Bottom Caption Bar Inside Header -->
+      <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 z-20">
         <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-iron-black/80 border border-chem-cyan/50 text-chem-cyan text-xs font-orbitron mb-2">
-            <span class="w-2 h-2 rounded-full bg-chem-cyan animate-ping"></span>
-            cX 4D DISPLAY & CORE AUDITING
-          </div>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white font-rajdhani uppercase tracking-wide" data-i18n="hero_title">
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white font-rajdhani uppercase tracking-wide" data-i18n="hero_title">
             ADVANCING BIOMEDICAL SCIENCE & ILLUMINATING HEARTS
           </h2>
-          <p class="text-xs sm:text-sm text-slate-300 font-sans max-w-2xl mt-1" data-i18n="hero_desc">
+          <p class="text-xs sm:text-sm text-slate-300 font-sans max-w-2xl mt-0.5" data-i18n="hero_desc">
             Ekosistem penyelidikan bersepadu berasaskan sains termaju, komputasi lestari, dan penghayatan rohani Al-Quran untuk masyarakat awam antarabangsa.
           </p>
         </div>
@@ -211,7 +244,7 @@
     </section>
 
     <!-- SECTION: GALERI TILAWAH AL-QURAN (SYEIKH MANSUR AL-SALMI) -->
-    <section class="forged-panel rounded-2xl p-6 md:p-8 border border-slate-700/70 relative overflow-hidden">
+    <section id="quran-gallery" class="forged-panel rounded-2xl p-6 md:p-8 border border-slate-700/70 relative overflow-hidden scroll-mt-24">
       <div class="absolute -right-20 -top-20 w-64 h-64 bg-chem-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
       
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-3 border-b border-slate-800 pb-4">
@@ -234,10 +267,9 @@
         </div>
       </div>
 
-      <!-- Audio Cards Grid -->
+      <!-- Audio Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
-        <!-- Track 1: Surah Al-Mulk -->
+        <!-- Surah Al-Mulk -->
         <div class="bg-iron-black/90 p-5 rounded-xl border border-slate-800/80 hover:border-chem-cyan/50 transition">
           <div class="flex justify-between items-center mb-2">
             <div>
@@ -251,14 +283,13 @@
               تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ
             </p>
           </div>
-          <!-- Sumber Audio Rasmi Mp3Quran Syeikh Mansur Al-Salmi Surah 067 -->
           <audio controls class="w-full h-9 rounded-lg mt-2 outline-none">
             <source src="https://server14.mp3quran.net/mansor/067.mp3" type="audio/mpeg">
             Pelayar anda tidak menyokong pemain audio.
           </audio>
         </div>
 
-        <!-- Track 2: Surah Al-Waqi'ah -->
+        <!-- Surah Al-Waqi'ah -->
         <div class="bg-iron-black/90 p-5 rounded-xl border border-slate-800/80 hover:border-horizon-green/50 transition">
           <div class="flex justify-between items-center mb-2">
             <div>
@@ -272,18 +303,16 @@
               إِذَا وَقَعَتِ الْوَاقِعَةُ • لَيْسَ لِوَقْعَتِهَا كَاذِبَةٌ
             </p>
           </div>
-          <!-- Sumber Audio Rasmi Mp3Quran Syeikh Mansur Al-Salmi Surah 056 -->
           <audio controls class="w-full h-9 rounded-lg mt-2 outline-none">
             <source src="https://server14.mp3quran.net/mansor/056.mp3" type="audio/mpeg">
             Pelayar anda tidak menyokong pemain audio.
           </audio>
         </div>
-
       </div>
     </section>
 
-    <!-- SECTION: MULTIMEDIA & VISUAL R&D GALLERY (IMAGE, AUDIO, VIDEO) -->
-    <section class="forged-panel rounded-2xl p-6 md:p-8 border border-slate-700/70">
+    <!-- SECTION: MULTIMEDIA & VISUAL R&D GALLERY -->
+    <section id="multimedia-gallery" class="forged-panel rounded-2xl p-6 md:p-8 border border-slate-700/70 scroll-mt-24">
       <div class="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
         <div class="h-5 w-1 bg-chem-cyan rounded-full"></div>
         <div>
@@ -295,7 +324,7 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Visual 1: Immersive Video Playback -->
+        <!-- Video Playback -->
         <div class="bg-iron-black/90 rounded-xl overflow-hidden border border-slate-800 flex flex-col justify-between">
           <div class="p-4 pb-2">
             <div class="flex justify-between items-center mb-1">
@@ -315,7 +344,7 @@
           </div>
         </div>
 
-        <!-- Visual 2: Image Gallery (cX Core Auditing) -->
+        <!-- Imej Display cX Core -->
         <div class="bg-iron-black/90 rounded-xl overflow-hidden border border-slate-800 flex flex-col justify-between">
           <div class="p-4 pb-2">
             <div class="flex justify-between items-center mb-1">
@@ -328,11 +357,11 @@
             <img src="1000034990.png" alt="XR6 Core Architecture" class="w-full h-44 object-cover rounded-lg border border-slate-700/50">
           </div>
           <div class="p-4 pt-1">
-            <span class="text-[10px] text-slate-400 block">Seni bina perkakasan selamat dan audit integriti ZK-PoE.</span>
+            <span class="text-[10px] text-slate-400 block">Seni bina perkakasan selamat dan audit integriti ZK-PoE[cite: 1, 6].</span>
           </div>
         </div>
 
-        <!-- Visual 3: Audio Stream / AI Laboratory -->
+        <!-- Audio Studio Sample -->
         <div class="bg-iron-black/90 rounded-xl overflow-hidden border border-slate-800 flex flex-col justify-between">
           <div class="p-4 pb-2">
             <div class="flex justify-between items-center mb-1">
@@ -355,7 +384,7 @@
     </section>
 
     <!-- SECTION: ZENODO & CAMBRIDGE OPEN SCIENTIFIC LIBRARY -->
-    <section class="forged-panel rounded-2xl p-6 md:p-8 border border-slate-700/70">
+    <section id="zenodo-library" class="forged-panel rounded-2xl p-6 md:p-8 border border-slate-700/70 scroll-mt-24">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-3 border-b border-slate-800 pb-4">
         <div>
           <div class="flex items-center gap-2 mb-1">
@@ -366,7 +395,7 @@
             <i class="fas fa-book-reader text-chem-cyan"></i> <span data-i18n="library_title">PERPUSTAKAAN KERTAS KERJA & REPOSITORI ZENODO</span>
           </h3>
           <p class="text-xs text-slate-400 font-sans mt-0.5" data-i18n="library_desc">
-            Penerbitan pracetak, dataset molekul, dan kertas kerja berwasit yang diindeks dengan DOI rasmi di Zenodo CERN & Cambridge Open Engage.
+            Penerbitan pracetak, dataset molekul, dan kertas kerja berwasit yang diindeks dengan DOI rasmi di Zenodo CERN & Cambridge Open Engage[cite: 1, 3, 4].
           </p>
         </div>
 
@@ -375,10 +404,8 @@
         </a>
       </div>
 
-      <!-- Scientific Paper Cards -->
+      <!-- Kertas Kerja -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
-        <!-- Paper 1 -->
         <div class="bg-iron-black/90 p-5 rounded-xl border border-slate-800 flex flex-col justify-between hover:border-electric-blue/50 transition">
           <div>
             <div class="flex items-center justify-between mb-2">
@@ -400,7 +427,6 @@
           </div>
         </div>
 
-        <!-- Paper 2 -->
         <div class="bg-iron-black/90 p-5 rounded-xl border border-slate-800 flex flex-col justify-between hover:border-horizon-green/50 transition">
           <div>
             <div class="flex items-center justify-between mb-2">
@@ -421,7 +447,6 @@
             </a>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -453,63 +478,108 @@
         </div>
         <h4 class="text-lg font-rajdhani font-bold text-white uppercase" data-i18n="card3_title">Ketua Penyelidik</h4>
         <p class="text-xs text-slate-300 font-sans mt-2 leading-relaxed" data-i18n="card3_desc">
-          <strong>Dr. Mohd Rahmat Nasyaa Bin Zulkifli</strong> — Lead Researcher & Systems Architect di XR6 Labs HQ; Pengarah Hal Ehwal Akademik XR6 BSA; Penulis Cambridge University Press.
+          <strong>Dr. Mohd Rahmat Nasyaa Bin Zulkifli</strong> — Lead Researcher & Systems Architect di XR6 Labs HQ; Pengarah Hal Ehwal Akademik XR6 BSA; Penulis Cambridge University Press[cite: 1, 3, 4].
         </p>
       </div>
     </section>
 
   </main>
 
-  <!-- RESEARCHER LOGIN / REGISTRATION MODAL -->
-  <div id="login-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="forged-panel border border-slate-700 w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
+  <!-- RESEARCHER SIGN IN & REGISTRATION MODAL (DWI-TAB) -->
+  <div id="login-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="forged-panel border border-slate-700 w-full max-w-lg rounded-2xl p-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
       <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
         <i class="fas fa-times"></i>
       </button>
 
-      <div class="text-center mb-6">
-        <div class="w-12 h-12 mx-auto rounded-xl bg-gradient-to-tr from-chem-cyan to-horizon-green p-0.5 mb-3">
+      <!-- Modal Title -->
+      <div class="text-center mb-5">
+        <div class="w-12 h-12 mx-auto rounded-xl bg-gradient-to-tr from-chem-cyan to-horizon-green p-0.5 mb-2.5">
           <div class="w-full h-full bg-iron-black rounded-[10px] flex items-center justify-center text-chem-cyan text-lg">
             <i class="fas fa-microscope"></i>
           </div>
         </div>
-        <h3 class="text-xl font-bold font-rajdhani text-white" data-i18n="modal_title">PORTAL PENYELIDIK BERSEPADU</h3>
-        <p class="text-xs text-slate-400 mt-1" data-i18n="modal_subtitle">Log masuk untuk penyelidik berdaftar atau mohon akses akaun XR6</p>
+        <h3 class="text-xl font-bold font-rajdhani text-white uppercase">PORTAL PENYELIDIK INSTITUSI</h3>
+        <p class="text-xs text-slate-400 mt-0.5">Gerbang akses saintifik & pendaftaran akaun penyelidik luar</p>
       </div>
 
-      <!-- ORCID SSO Login Button -->
-      <a href="https://orcid.org/signin" target="_blank" class="w-full py-2.5 px-4 mb-3 rounded-xl bg-slate-900 border border-emerald-500/40 hover:border-emerald-400 flex items-center justify-center gap-3 text-xs font-bold font-rajdhani tracking-wider text-emerald-400 transition shadow-lg">
-        <img src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" class="w-4 h-4" alt="ORCID">
-        <span data-i18n="modal_orcid_btn">LOG MASUK DENGAN ORCID iD</span>
-      </a>
-
-      <div class="flex items-center my-4">
-        <div class="flex-grow border-t border-slate-800"></div>
-        <span class="px-3 text-[10px] text-slate-500 font-mono" data-i18n="modal_or">ATAU E-MEL INSTITUSI</span>
-        <div class="flex-grow border-t border-slate-800"></div>
-      </div>
-
-      <form onsubmit="handleResearcherSubmit(event)" class="space-y-3">
-        <div>
-          <label class="block text-[11px] font-rajdhani font-semibold text-slate-300 mb-1" data-i18n="modal_label_email">E-mel Institusi / Penyelidik</label>
-          <input type="email" required placeholder="researcher@ac.xr6labs.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-chem-cyan">
-        </div>
-        <div>
-          <label class="block text-[11px] font-rajdhani font-semibold text-slate-300 mb-1" data-i18n="modal_label_pass">Kata Laluan</label>
-          <input type="password" required placeholder="••••••••" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-chem-cyan">
-        </div>
-
-        <button type="submit" class="w-full py-2.5 rounded-lg bg-gradient-to-r from-electric-blue to-chem-cyan text-white font-rajdhani font-bold text-xs tracking-wider transition hover:brightness-110 shadow-lg mt-2" data-i18n="modal_btn_submit">
-          MASUK KE PAPAN PEMUKA
+      <!-- Tab Switcher (Log Masuk vs Daftar) -->
+      <div class="grid grid-cols-2 gap-2 p-1 bg-slate-950 rounded-xl border border-slate-800 mb-5">
+        <button id="tab-btn-login" onclick="switchModalTab('login')" class="py-2 rounded-lg text-xs font-rajdhani font-bold tracking-wider bg-electric-blue text-white transition">
+          <i class="fas fa-sign-in-alt mr-1"></i> LOG MASUK
         </button>
-      </form>
-
-      <div class="mt-4 text-center">
-        <p class="text-[11px] text-slate-400" data-i18n="modal_request_text">
-          Penyelidik luar yang belum berdaftar? 
-          <a href="mailto:drmrnmez@ac.xr6labs.com?subject=Permohonan%20Akses%20Penyelidik%20XR6" class="text-chem-cyan hover:underline font-bold" data-i18n="modal_request_link">Mohon Kelulusan Akaun</a>
-        </p>
+        <button id="tab-btn-register" onclick="switchModalTab('register')" class="py-2 rounded-lg text-xs font-rajdhani font-bold tracking-wider text-slate-400 hover:text-white transition">
+          <i class="fas fa-user-plus mr-1"></i> DAFTAR PENYELIDIK
+        </button>
       </div>
+
+      <!-- TAB 1: FORMULIR LOG MASUK -->
+      <div id="tab-content-login">
+        <!-- ORCID SSO Button -->
+        <a href="https://orcid.org/signin" target="_blank" class="w-full py-2.5 px-4 mb-4 rounded-xl bg-slate-900 border border-emerald-500/40 hover:border-emerald-400 flex items-center justify-center gap-3 text-xs font-bold font-rajdhani tracking-wider text-emerald-400 transition shadow-lg">
+          <img src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" class="w-4 h-4" alt="ORCID">
+          <span>LOG MASUK DENGAN ORCID iD</span>
+        </a>
+
+        <div class="flex items-center my-4">
+          <div class="flex-grow border-t border-slate-800"></div>
+          <span class="px-3 text-[10px] text-slate-500 font-mono">ATAU KREDENSIAL INSTITUSI</span>
+          <div class="flex-grow border-t border-slate-800"></div>
+        </div>
+
+        <form onsubmit="handleResearcherSubmit(event)" class="space-y-3">
+          <div>
+            <label class="block text-[11px] font-rajdhani font-semibold text-slate-300 mb-1">E-mel Institusi / Penyelidik</label>
+            <input type="email" required placeholder="researcher@ac.xr6labs.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-chem-cyan">
+          </div>
+          <div>
+            <label class="block text-[11px] font-rajdhani font-semibold text-slate-300 mb-1">Kata Laluan</label>
+            <input type="password" required placeholder="••••••••" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-chem-cyan">
+          </div>
+          <button type="submit" class="w-full py-2.5 rounded-lg bg-gradient-to-r from-electric-blue to-chem-cyan text-white font-rajdhani font-bold text-xs tracking-wider transition hover:brightness-110 shadow-lg mt-2">
+            MASUK KE DASHBOARD PENYELIDIK
+          </button>
+        </form>
+      </div>
+
+      <!-- TAB 2: FORMULIR PENDAFTARAN PENYELIDIK BARU -->
+      <div id="tab-content-register" class="hidden">
+        <p class="text-[11px] text-slate-400 mb-4 text-center">
+          Daftar akaun penyelidik baharu bagi mendapatkan akses muat naik kertas kerja dan repositori data molekul XR6 Labs HQ.
+        </p>
+        <form onsubmit="handleRegistrationSubmit(event)" class="space-y-3">
+          <div>
+            <label class="block text-[11px] font-rajdhani font-semibold text-slate-300 mb-1">Nama Penuh & Gelaran Saintifik</label>
+            <input type="text" required placeholder="Contoh: Dr. Sarah Jenkins / Prof. Madya Ahmad" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-power-orange">
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-rajdhani font-semibold text-slate-300 mb-1">E-mel Rasmi Institusi</label>
+              <input type="email" required placeholder="nama@universiti.edu.my" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-power-orange">
+            </div>
+            <div>
+              <label class="block text-[11px] font-rajdhani font-semibold text-slate-300 mb-1">Nombor ORCID iD</label>
+              <input type="text" required placeholder="0000-0002-XXXX-XXXX" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-power-orange">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-rajdhani font-semibold text-slate-300 mb-1">Institusi / Universiti / Organisasi</label>
+            <input type="text" required placeholder="Contoh: Cambridge Life Sciences / Universiti Malaya" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-power-orange">
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-rajdhani font-semibold text-slate-300 mb-1">Cipta Kata Laluan</label>
+            <input type="password" required placeholder="Minimum 8 aksara" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-power-orange">
+          </div>
+
+          <button type="submit" class="w-full py-2.5 rounded-lg bg-gradient-to-r from-power-orange to-amber-600 text-white font-rajdhani font-bold text-xs tracking-wider transition hover:brightness-110 shadow-lg mt-3">
+            HANTAR PERMOHONAN PENDAFTARAN
+          </button>
+        </form>
+      </div>
+
     </div>
   </div>
 
@@ -519,7 +589,7 @@
       <div class="flex items-center gap-3">
         <span class="font-orbitron font-bold text-white text-xs">XR6 LABS HQ</span>
         <span class="text-slate-600">|</span>
-        <span class="text-[11px] font-rajdhani" data-i18n="footer_rights">Sains Terbuka, Da'wah & Inovasi Bioperubatan Bervariasi</span>
+        <span class="text-[11px] font-rajdhani">Sains Terbuka, Da'wah & Inovasi Bioperubatan Bervariasi</span>
       </div>
       <div class="flex items-center gap-4 font-rajdhani font-semibold text-xs">
         <a href="https://ac.xr6labs.com" class="text-chem-cyan hover:underline">ac.xr6labs.com</a>
@@ -529,14 +599,56 @@
     </div>
   </footer>
 
-  <!-- DUAL LANGUAGE SCRIPT & REAL-TIME ENGINE -->
+  <!-- REAL TIME ENGINE & TAB SWITCHER SCRIPT -->
   <script>
+    // Modal & Tab Functions
+    function openLoginModal(tab = 'login') {
+      document.getElementById('login-modal').classList.remove('hidden');
+      switchModalTab(tab);
+    }
+
+    function closeLoginModal() {
+      document.getElementById('login-modal').classList.add('hidden');
+    }
+
+    function switchModalTab(tab) {
+      const loginTab = document.getElementById('tab-content-login');
+      const registerTab = document.getElementById('tab-content-register');
+      const btnLogin = document.getElementById('tab-btn-login');
+      const btnRegister = document.getElementById('tab-btn-register');
+
+      if (tab === 'register') {
+        loginTab.classList.add('hidden');
+        registerTab.classList.remove('hidden');
+        btnRegister.className = "py-2 rounded-lg text-xs font-rajdhani font-bold tracking-wider bg-power-orange text-white transition";
+        btnLogin.className = "py-2 rounded-lg text-xs font-rajdhani font-bold tracking-wider text-slate-400 hover:text-white transition";
+      } else {
+        loginTab.classList.remove('hidden');
+        registerTab.classList.add('hidden');
+        btnLogin.className = "py-2 rounded-lg text-xs font-rajdhani font-bold tracking-wider bg-electric-blue text-white transition";
+        btnRegister.className = "py-2 rounded-lg text-xs font-rajdhani font-bold tracking-wider text-slate-400 hover:text-white transition";
+      }
+    }
+
+    function handleResearcherSubmit(e) {
+      e.preventDefault();
+      alert("Pengesahan kredensial sedang disemak. Kredensial anda akan dialihkan ke ruang penyelidik.");
+      window.location.href = "admin.html";
+    }
+
+    function handleRegistrationSubmit(e) {
+      e.preventDefault();
+      alert("Permohonan pendaftaran akaun penyelidik anda telah berjaya dihantar! Permohonan ini akan disemak dan diluluskan oleh Ketua Pentadbir XR6 Labs HQ.");
+      closeLoginModal();
+    }
+
+    // Language Engine
     const translations = {
       bm: {
         nav_researcher_login: "LOG MASUK PENYELIDIK",
+        nav_researcher_register: "DAFTAR AKAUN",
         nav_admin: "ADMIN",
         ticker_badge: "Akses Awam",
-        ticker_content: "<span class='text-chem-cyan font-bold'>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span> — Selamat datang ke Hab Penyelidikan Terbuka XR6 Labs HQ. Mempelopori Bio-Kejuruteraan Perubatan, Kecerdasan Buatan (Biomedical AI), dan Alunan Kalamullah Al-Quran untuk manfaat serta da'wah sejagat.",
         hero_title: "ADVANCING BIOMEDICAL SCIENCE & ILLUMINATING HEARTS",
         hero_desc: "Ekosistem penyelidikan bersepadu berasaskan sains termaju, komputasi lestari, dan penghayatan rohani Al-Quran untuk masyarakat awam antarabangsa.",
         badges_header: "Rangka Kerja Penyelidikan & Afiliasi Antarabangsa",
@@ -554,23 +666,13 @@
         card2_title: "XR/VR & Bio-Compute Pipelines",
         card2_desc: "Integrasi makmal maya interaktif XR/VR bersama saluran bio-komputasi lestari (eco-compute) serta pangkalan data global NCBI, NIH, dan GEO.",
         card3_title: "Ketua Penyelidik",
-        card3_desc: "<strong>Dr. Mohd Rahmat Nasyaa Bin Zulkifli</strong> — Lead Researcher & Systems Architect di XR6 Labs HQ; Pengarah Hal Ehwal Akademik XR6 BSA; Penulis Cambridge University Press.",
-        modal_title: "PORTAL PENYELIDIK BERSEPADU",
-        modal_subtitle: "Log masuk untuk penyelidik berdaftar atau mohon akses akaun XR6",
-        modal_orcid_btn: "LOG MASUK DENGAN ORCID iD",
-        modal_or: "ATAU E-MEL INSTITUSI",
-        modal_label_email: "E-mel Institusi / Penyelidik",
-        modal_label_pass: "Kata Laluan",
-        modal_btn_submit: "MASUK KE PAPAN PEMUKA",
-        modal_request_text: "Penyelidik luar yang belum berdaftar? ",
-        modal_request_link: "Mohon Kelulusan Akaun",
-        footer_rights: "Sains Terbuka, Da'wah & Inovasi Bioperubatan Bervariasi"
+        card3_desc: "<strong>Dr. Mohd Rahmat Nasyaa Bin Zulkifli</strong> — Lead Researcher & Systems Architect di XR6 Labs HQ; Pengarah Hal Ehwal Akademik XR6 BSA; Penulis Cambridge University Press."
       },
       en: {
         nav_researcher_login: "RESEARCHER SIGN IN",
+        nav_researcher_register: "REGISTER ACCOUNT",
         nav_admin: "ADMIN",
         ticker_badge: "Public Access",
-        ticker_content: "<span class='text-chem-cyan font-bold'>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span> — Welcome to the Open Research Hub of XR6 Labs HQ. Pioneering Medical Bio-Engineering, Biomedical AI, and Divine Qur'anic Recitations for public knowledge and universal da'wah.",
         hero_title: "ADVANCING BIOMEDICAL SCIENCE & ILLUMINATING HEARTS",
         hero_desc: "An integrated research ecosystem combining advanced life sciences, eco-compute infrastructure, and spiritual contemplation of the Holy Qur'an for global public benefit.",
         badges_header: "Research Frameworks & Global Affiliations",
@@ -588,17 +690,7 @@
         card2_title: "XR/VR & Bio-Compute Pipelines",
         card2_desc: "Integration of immersive XR/VR virtual laboratories with verifiable eco-compute pipelines and global scientific databases (NCBI, NIH, GEO).",
         card3_title: "Principal Investigator",
-        card3_desc: "<strong>Dr. Mohd Rahmat Nasyaa Bin Zulkifli</strong> — Lead Researcher & Systems Architect at XR6 Labs HQ; Director of Academic Affairs at XR6 BSA; Cambridge University Press Author.",
-        modal_title: "RESEARCHER ACCESS PORTAL",
-        modal_subtitle: "Sign in for registered researchers or apply for verified XR6 credentials",
-        modal_orcid_btn: "SIGN IN WITH ORCID iD",
-        modal_or: "OR INSTITUTIONAL EMAIL",
-        modal_label_email: "Institutional / Researcher Email",
-        modal_label_pass: "Password",
-        modal_btn_submit: "ENTER RESEARCH DASHBOARD",
-        modal_request_text: "New external researcher? ",
-        modal_request_link: "Request Account Verification",
-        footer_rights: "Open Science, Da'wah & Verifiable Biomedical Innovation"
+        card3_desc: "<strong>Dr. Mohd Rahmat Nasyaa Bin Zulkifli</strong> — Lead Researcher & Systems Architect at XR6 Labs HQ; Director of Academic Affairs at XR6 BSA; Cambridge University Press Author."
       }
     };
 
@@ -620,61 +712,17 @@
           el.innerHTML = translations[lang][key];
         }
       });
-
-      const ticker = document.getElementById('ticker-text');
-      if (ticker) {
-        ticker.innerHTML = translations[lang].ticker_content;
-      }
     }
 
-    function openLoginModal() {
-      document.getElementById('login-modal').classList.remove('hidden');
-    }
-
-    function closeLoginModal() {
-      document.getElementById('login-modal').classList.add('hidden');
-    }
-
-    function handleResearcherSubmit(e) {
-      e.preventDefault();
-      alert("Pengesahan kredensial sedang disemak. Kredensial anda akan dialihkan ke ruang penyelidik.");
-      window.location.href = "admin.html";
-    }
-
-    function updateClockAndCalendar() {
+    // Live Clock Engine
+    function updateClock() {
       const now = new Date();
-      const timeStr = now.toLocaleTimeString('en-GB', { 
-        timeZone: 'Asia/Kuala_Lumpur',
-        hour12: false
-      });
+      const timeStr = now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Kuala_Lumpur', hour12: false });
       const timeEl = document.getElementById('live-time');
       if (timeEl) timeEl.textContent = timeStr;
-
-      const miladiStr = now.toLocaleDateString('en-MY', {
-        timeZone: 'Asia/Kuala_Lumpur',
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric'
-      });
-
-      let hijriStr = "";
-      try {
-        hijriStr = new Intl.DateTimeFormat('en-u-ca-islamic-umalqura', {
-          timeZone: 'Asia/Kuala_Lumpur',
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
-        }).format(now);
-      } catch (e) {
-        hijriStr = "Hijriah";
-      }
-
-      const dateEl = document.getElementById('live-date');
-      if (dateEl) dateEl.textContent = `${miladiStr} / ${hijriStr}`;
     }
-
-    setInterval(updateClockAndCalendar, 1000);
-    updateClockAndCalendar();
+    setInterval(updateClock, 1000);
+    updateClock();
   </script>
 </body>
 </html>
