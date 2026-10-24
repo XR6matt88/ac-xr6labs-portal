@@ -325,4 +325,56 @@
       <div class="flex items-center gap-3">
         <span class="font-orbitron font-bold text-white text-xs">XR6 LABS HQ</span>
         <span class="text-slate-600">|</span>
-        <span class="text-[11px] font-rajdhani">Open Science,
+        <span class="text-[11px] font-rajdhani">Open Science, Da'wah & Verifiable Biomedical Innovation</span>
+      </div>
+      <div class="flex items-center gap-4 font-rajdhani font-semibold text-xs">
+        <a href="https://ac.xr6labs.com" class="text-chem-cyan hover:underline">ac.xr6labs.com</a>
+        <a href="https://www.xr6labs.com" class="text-power-orange hover:underline">www.xr6labs.com</a>
+        <a href="https://orcid.org/0009-0007-5013-7995" target="_blank" class="text-horizon-green hover:underline">ORCID Registry</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DIGITAL CLOCK & CALENDAR (MYT & HIJRIAH/MILADI) -->
+  <script>
+    function updateClockAndCalendar() {
+      const now = new Date();
+
+      // Real-Time Clock MYT
+      const timeStr = now.toLocaleTimeString('en-GB', { 
+        timeZone: 'Asia/Kuala_Lumpur',
+        hour12: false
+      });
+      const timeEl = document.getElementById('live-time');
+      if (timeEl) timeEl.textContent = timeStr;
+
+      // Miladi Date
+      const miladiStr = now.toLocaleDateString('en-MY', {
+        timeZone: 'Asia/Kuala_Lumpur',
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric'
+      });
+
+      // Hijriah Date
+      let hijriStr = "";
+      try {
+        hijriStr = new Intl.DateTimeFormat('en-u-ca-islamic-umalqura', {
+          timeZone: 'Asia/Kuala_Lumpur',
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        }).format(now);
+      } catch (e) {
+        hijriStr = "Hijriah";
+      }
+
+      const dateEl = document.getElementById('live-date');
+      if (dateEl) dateEl.textContent = `${miladiStr} / ${hijriStr}`;
+    }
+
+    setInterval(updateClockAndCalendar, 1000);
+    updateClockAndCalendar();
+  </script>
+</body>
+</html>
