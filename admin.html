@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Center | XR6 Labs HQ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
+  
+  <header class="border-b border-slate-800 bg-slate-900 px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+      <span class="text-base font-bold text-white tracking-wider">XR6 LABS HQ</span>
+      <span class="text-[10px] bg-red-950 text-red-400 border border-red-800 px-2 py-0.5 rounded font-mono font-bold uppercase">Executive Admin Gateway</span>
+    </div>
+    <div class="text-xs text-slate-400">
+      Logged in as: <span class="text-emerald-400 font-mono font-bold">drmrnmez@ac.xr6labs.com</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-8 flex-grow w-full">
+    
+    <!-- Unified Institutional External Gateway Links -->
+    <div class="mb-10">
+      <h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4">Direct Scientific &amp; Institutional Dashboards</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center text-xs">
+        <a href="https://www.cambridge.org/core/idp/1502112362_XR6LHQ" target="_blank" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-4 rounded-xl transition flex flex-col items-center justify-center">
+          <span class="text-xl mb-1">🏛️</span>
+          <span class="font-bold text-white">Cambridge Core</span>
+          <span class="text-[9px] text-slate-500 font-mono">1502112362</span>
+        </a>
+        <a href="https://www.cambridge.org/engage/coe" target="_blank" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-4 rounded-xl transition flex flex-col items-center justify-center">
+          <span class="text-xl mb-1">📄</span>
+          <span class="font-bold text-white">Open Engage</span>
+          <span class="text-[9px] text-slate-500 font-mono">Preprint CUP</span>
+        </a>
+        <a href="https://orcid.org/0009-0007-5013-7995" target="_blank" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-4 rounded-xl transition flex flex-col items-center justify-center">
+          <span class="text-xl mb-1">🆔</span>
+          <span class="font-bold text-white">ORCID Console</span>
+          <span class="text-[9px] text-slate-500 font-mono">0009-0007-5013-7995</span>
+        </a>
+        <a href="https://www.ncbi.nlm.nih.gov/" target="_blank" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-4 rounded-xl transition flex flex-col items-center justify-center">
+          <span class="text-xl mb-1">🧬</span>
+          <span class="font-bold text-white">NCBI / NIH</span>
+          <span class="text-[9px] text-slate-500 font-mono">GEO &amp; PubMed</span>
+        </a>
+        <a href="https://open-research-europe.ec.europa.eu/" target="_blank" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-4 rounded-xl transition flex flex-col items-center justify-center">
+          <span class="text-xl mb-1">🇪🇺</span>
+          <span class="font-bold text-white">ORE / COST</span>
+          <span class="text-[9px] text-slate-500 font-mono">AGENT-SEC</span>
+        </a>
+        <a href="https://www.datacamp.com" target="_blank" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-4 rounded-xl transition flex flex-col items-center justify-center">
+          <span class="text-xl mb-1">🎓</span>
+          <span class="font-bold text-white">DataCamp</span>
+          <span class="text-[9px] text-slate-500 font-mono">XR6 BSA Enterprise</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Administrative Operations Cards -->
+    <div class="grid md:grid-cols-3 gap-6">
+      
+      <!-- Panel 1: Post New Announcement -->
+      <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
+        <h3 class="text-sm font-bold text-white mb-2">Publish Announcement / News</h3>
+        <p class="text-xs text-slate-400 mb-4">Updates will immediately reflect on the homepage news ticker.</p>
+        <form onsubmit="event.preventDefault(); alert('Announcement posted successfully!');" class="space-y-3">
+          <textarea rows="3" required placeholder="Type announcement headline..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-white outline-none focus:border-emerald-500"></textarea>
+          <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold py-2 rounded-lg transition">Broadcast Dispatch</button>
+        </form>
+      </div>
+
+      <!-- Panel 2: Approve Researcher Access -->
+      <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
+        <h3 class="text-sm font-bold text-white mb-2">Researcher Account Approvals</h3>
+        <p class="text-xs text-slate-400 mb-4">Review incoming registrations via ORCID or Google OAuth.</p>
+        <div class="space-y-2 text-xs">
+          <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg flex justify-between items-center">
+            <div>
+              <p class="font-bold text-white">Dr. Sarah Jenkins</p>
+              <p class="text-[10px] text-slate-400">ORCID: 0000-0002-1825-0097</p>
+            </div>
+            <button onclick="this.innerText='Approved'; this.className='text-[10px] bg-emerald-950 text-emerald-400 px-2 py-1 rounded border border-emerald-800';" class="bg-emerald-600 hover:bg-emerald-500 text-white text-[10px] px-2.5 py-1 rounded font-semibold transition">Approve</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 3: Add Gallery Asset -->
+      <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
+        <h3 class="text-sm font-bold text-white mb-2">Add Gallery Image / VR Milestone</h3>
+        <p class="text-xs text-slate-400 mb-4">Upload lab simulations to the visual archive.</p>
+        <form onsubmit="event.preventDefault(); alert('Asset uploaded to gallery archive!');" class="space-y-3">
+          <input type="text" placeholder="Title of experiment or model" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-white outline-none focus:border-emerald-500">
+          <input type="file" class="w-full text-xs text-slate-400 file:mr-4 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-xs file:bg-slate-800 file:text-emerald-400">
+          <button type="submit" class="w-full bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold py-2 rounded-lg transition border border-slate-700">Add to Gallery</button>
+        </form>
+      </div>
+
+    </div>
+
+  </main>
+</body>
+</html>
