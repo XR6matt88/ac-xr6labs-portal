@@ -1,103 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Control Center | XR6 Labs HQ</title>
+  <title>XR6 Labs HQ — Executive Admin & Research Console</title>
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
+  <!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   
-  <header class="border-b border-slate-800 bg-slate-900 px-6 py-4 flex items-center justify-between">
-    <div class="flex items-center space-x-3">
-      <span class="text-base font-bold text-white tracking-wider">XR6 LABS HQ</span>
-      <span class="text-[10px] bg-red-950 text-red-400 border border-red-800 px-2 py-0.5 rounded font-mono font-bold uppercase">Executive Admin Gateway</span>
-    </div>
-    <div class="text-xs text-slate-400">
-      Logged in as: <span class="text-emerald-400 font-mono font-bold">drmrnmez@ac.xr6labs.com</span>
-    </div>
-  </header>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'power-orange': '#F97316',
+            'horizon-green': '#10B981',
+            'electric-blue': '#2563EB',
+            'chem-cyan': '#06B6D4',
+            'iron-black': '#090B0E',
+            'steel-slate': '#161B22',
+            'microfibre': '#1C2128'
+          },
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif'],
+            rajdhani: ['Rajdhani', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
 
-  <main class="max-w-7xl mx-auto px-6 py-8 flex-grow w-full">
+  <style>
+    body {
+      background-color: #080A0D;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(249, 115, 22, 0.08) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 24px 24px, 24px 24px;
+    }
+
+    .forged-panel {
+      background: linear-gradient(135deg, rgba(28, 33, 40, 0.9) 0%, rgba(13, 17, 23, 0.98) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="text-slate-100 font-sans min-h-screen p-4 md:p-8 flex flex-col justify-between selection:bg-power-orange selection:text-white">
+
+  <div class="max-w-6xl mx-auto w-full space-y-8">
     
-    <!-- Unified Institutional External Gateway Links -->
-    <div class="mb-10">
-      <h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4">Direct Scientific &amp; Institutional Dashboards</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center text-xs">
-        <a href="https://www.cambridge.org/core/idp/1502112362_XR6LHQ" target="_blank" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-4 rounded-xl transition flex flex-col items-center justify-center">
-          <span class="text-xl mb-1">🏛️</span>
-          <span class="font-bold text-white">Cambridge Core</span>
-          <span class="text-[9px] text-slate-500 font-mono">1502112362</span>
+    <!-- TOP BAR: BUTANG KEMBALI KE HOMEPAGE -->
+    <div class="forged-panel p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4 border border-slate-700/60">
+      <div class="flex items-center gap-3">
+        <!-- BUTANG BACK KE HOMEPAGE -->
+        <a href="index.html" class="bg-gradient-to-r from-power-orange to-amber-600 hover:brightness-110 text-white font-bold font-rajdhani text-xs px-4 py-2.5 rounded-xl border border-power-orange/40 transition flex items-center gap-2 shadow-lg shadow-power-orange/20 group">
+          <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+          <span>KEMBALI KE HOMEPAGE</span>
         </a>
-        <a href="https://www.cambridge.org/engage/coe" target="_blank" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-4 rounded-xl transition flex flex-col items-center justify-center">
-          <span class="text-xl mb-1">📄</span>
-          <span class="font-bold text-white">Open Engage</span>
-          <span class="text-[9px] text-slate-500 font-mono">Preprint CUP</span>
-        </a>
-        <a href="https://orcid.org/0009-0007-5013-7995" target="_blank" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-4 rounded-xl transition flex flex-col items-center justify-center">
-          <span class="text-xl mb-1">🆔</span>
-          <span class="font-bold text-white">ORCID Console</span>
-          <span class="text-[9px] text-slate-500 font-mono">0009-0007-5013-7995</span>
-        </a>
-        <a href="https://www.ncbi.nlm.nih.gov/" target="_blank" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-4 rounded-xl transition flex flex-col items-center justify-center">
-          <span class="text-xl mb-1">🧬</span>
-          <span class="font-bold text-white">NCBI / NIH</span>
-          <span class="text-[9px] text-slate-500 font-mono">GEO &amp; PubMed</span>
-        </a>
-        <a href="https://open-research-europe.ec.europa.eu/" target="_blank" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-4 rounded-xl transition flex flex-col items-center justify-center">
-          <span class="text-xl mb-1">🇪🇺</span>
-          <span class="font-bold text-white">ORE / COST</span>
-          <span class="text-[9px] text-slate-500 font-mono">AGENT-SEC</span>
-        </a>
-        <a href="https://www.datacamp.com" target="_blank" class="bg-slate-900 border border-slate-800 hover:border-emerald-500 p-4 rounded-xl transition flex flex-col items-center justify-center">
-          <span class="text-xl mb-1">🎓</span>
-          <span class="font-bold text-white">DataCamp</span>
-          <span class="text-[9px] text-slate-500 font-mono">XR6 BSA Enterprise</span>
-        </a>
+        <div class="h-6 w-px bg-slate-700 hidden sm:block"></div>
+        <div>
+          <h1 class="text-lg font-bold font-orbitron text-white flex items-center gap-2">
+            <span class="text-chem-cyan">XR6 LABS HQ</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-power-orange/20 text-power-orange font-mono font-semibold">EXECUTIVE ADMIN CONSOLE</span>
+          </h1>
+          <p class="text-[11px] text-slate-400 font-rajdhani">Logged in as: <strong class="text-emerald-400 font-mono">drmrnmez@ac.xr6labs.com</strong></p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="text-[10px] text-horizon-green bg-horizon-green/10 border border-horizon-green/30 px-2.5 py-1 rounded-lg font-mono font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-horizon-green animate-pulse"></span>
+          DIRECT SCIENTIFIC LINK ACTIVE
+        </span>
       </div>
     </div>
 
-    <!-- Administrative Operations Cards -->
-    <div class="grid md:grid-cols-3 gap-6">
+    <!-- DIRECT SCIENTIFIC & INSTITUTIONAL GATEWAYS -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+      <a href="https://www.cambridge.org/core" target="_blank" class="forged-panel p-3 rounded-xl border-l-2 border-l-electric-blue hover:brightness-125 transition text-center group">
+        <i class="fas fa-university text-electric-blue text-lg mb-1 group-hover:scale-110 transition"></i>
+        <p class="text-xs font-bold font-rajdhani text-white">Cambridge Core</p>
+        <span class="text-[9px] text-slate-400 font-mono">Institutional</span>
+      </a>
+
+      <a href="https://www.cambridge.org/engage/coe" target="_blank" class="forged-panel p-3 rounded-xl border-l-2 border-l-chem-cyan hover:brightness-125 transition text-center group">
+        <i class="fas fa-book-open text-chem-cyan text-lg mb-1 group-hover:scale-110 transition"></i>
+        <p class="text-xs font-bold font-rajdhani text-white">Open Engage</p>
+        <span class="text-[9px] text-slate-400 font-mono">Author Node</span>
+      </a>
+
+      <a href="https://orcid.org/0009-0007-5013-7995" target="_blank" class="forged-panel p-3 rounded-xl border-l-2 border-l-horizon-green hover:brightness-125 transition text-center group">
+        <i class="fas fa-id-card text-horizon-green text-lg mb-1 group-hover:scale-110 transition"></i>
+        <p class="text-xs font-bold font-rajdhani text-white">ORCID Console</p>
+        <span class="text-[9px] text-slate-400 font-mono truncate">0009-0007-5013</span>
+      </a>
+
+      <a href="https://zenodo.org/communities/xr6labs-hub" target="_blank" class="forged-panel p-3 rounded-xl border-l-2 border-l-power-orange hover:brightness-125 transition text-center group">
+        <i class="fas fa-database text-power-orange text-lg mb-1 group-hover:scale-110 transition"></i>
+        <p class="text-xs font-bold font-rajdhani text-white">Zenodo CERN</p>
+        <span class="text-[9px] text-slate-400 font-mono">xr6labs-hub</span>
+      </a>
+
+      <a href="https://www.ncbi.nlm.nih.gov" target="_blank" class="forged-panel p-3 rounded-xl border-l-2 border-l-chem-cyan hover:brightness-125 transition text-center group">
+        <i class="fas fa-dna text-chem-cyan text-lg mb-1 group-hover:scale-110 transition"></i>
+        <p class="text-xs font-bold font-rajdhani text-white">NCBI / NIH</p>
+        <span class="text-[9px] text-slate-400 font-mono">GEO Pipeline</span>
+      </a>
+
+      <a href="https://www.cost.eu" target="_blank" class="forged-panel p-3 rounded-xl border-l-2 border-l-electric-blue hover:brightness-125 transition text-center group">
+        <i class="fas fa-network-wired text-electric-blue text-lg mb-1 group-hover:scale-110 transition"></i>
+        <p class="text-xs font-bold font-rajdhani text-white">ORE / COST</p>
+        <span class="text-[9px] text-slate-400 font-mono">AGENT-SEC</span>
+      </a>
+    </div>
+
+    <!-- PENGURUSAN MULTIMEDIA & MUAT NAIK AUDIO DARI TELEFON -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       
-      <!-- Panel 1: Post New Announcement -->
-      <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
-        <h3 class="text-sm font-bold text-white mb-2">Publish Announcement / News</h3>
-        <p class="text-xs text-slate-400 mb-4">Updates will immediately reflect on the homepage news ticker.</p>
-        <form onsubmit="event.preventDefault(); alert('Announcement posted successfully!');" class="space-y-3">
-          <textarea rows="3" required placeholder="Type announcement headline..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-white outline-none focus:border-emerald-500"></textarea>
-          <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold py-2 rounded-lg transition">Broadcast Dispatch</button>
+      <!-- MUAT NAIK FAIL AUDIO DARI TELEFON -->
+      <div class="forged-panel rounded-2xl p-6 border border-slate-700/70">
+        <div class="flex items-center gap-2 mb-3">
+          <i class="fas fa-file-audio text-power-orange text-lg"></i>
+          <h3 class="text-base font-bold font-orbitron text-white">MUAT NAIK AUDIO DARI TELEFON</h3>
+        </div>
+        <p class="text-xs text-slate-400 mb-4 font-sans leading-relaxed">
+          Pilih fail rakaman suara Al-Quran atau audio dari AI Studio terus daripada storan telefon anda.
+        </p>
+
+        <form onsubmit="handleAudioUpload(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-rajdhani font-semibold text-slate-300 mb-1">Tajuk Audio / Nama Surah & Qari</label>
+            <input type="text" id="audio-title" required placeholder="Contoh: Surah Al-Mulk - Syeikh Mansur Al-Salmi" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-power-orange">
+          </div>
+
+          <div>
+            <label class="block text-xs font-rajdhani font-semibold text-slate-300 mb-1">Pilih Fail Audio (MP3 / WAV / M4A)</label>
+            <input type="file" id="audio-file" accept="audio/*" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-rajdhani file:font-bold file:bg-power-orange file:text-white hover:file:brightness-110 cursor-pointer">
+          </div>
+
+          <div>
+            <label class="block text-xs font-rajdhani font-semibold text-slate-300 mb-1">Atau Pautan URL Audio (Pilihan Tambahan)</label>
+            <input type="url" id="audio-url" placeholder="https://storan-anda.com/audio.mp3" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-power-orange">
+          </div>
+
+          <button type="submit" class="w-full py-2.5 rounded-lg bg-gradient-to-r from-power-orange to-chem-cyan text-white font-rajdhani font-bold text-xs tracking-wider transition hover:brightness-110 shadow-lg">
+            <i class="fas fa-cloud-upload-alt mr-1"></i> SIMPAN & TERBITKAN KE GALERI AUDIO
+          </button>
         </form>
       </div>
 
-      <!-- Panel 2: Approve Researcher Access -->
-      <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
-        <h3 class="text-sm font-bold text-white mb-2">Researcher Account Approvals</h3>
-        <p class="text-xs text-slate-400 mb-4">Review incoming registrations via ORCID or Google OAuth.</p>
-        <div class="space-y-2 text-xs">
-          <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg flex justify-between items-center">
+      <!-- MUAT NAIK IMEJ & VIDEO KE GALERI -->
+      <div class="forged-panel rounded-2xl p-6 border border-slate-700/70">
+        <div class="flex items-center gap-2 mb-3">
+          <i class="fas fa-photo-video text-chem-cyan text-lg"></i>
+          <h3 class="text-base font-bold font-orbitron text-white">MUAT NAIK IMEJ & VIDEO KE GALERI</h3>
+        </div>
+        <p class="text-xs text-slate-400 mb-4 font-sans leading-relaxed">
+          Tambahkan gambar rajah molekul atau klip demonstrasi visual makmal XR/VR ke galeri.
+        </p>
+
+        <form onsubmit="handleMediaUpload(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-rajdhani font-semibold text-slate-300 mb-1">Tajuk Eksperimen / Visual Model</label>
+            <input type="text" id="media-title" required placeholder="Contoh: cX 4D Dynamic Protein Cleavage Simulation" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-chem-cyan">
+          </div>
+
+          <div>
+            <label class="block text-xs font-rajdhani font-semibold text-slate-300 mb-1">Pilih Fail Imej atau Video (PNG, JPG, MP4)</label>
+            <input type="file" id="media-file" accept="image/*,video/*" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-rajdhani file:font-bold file:bg-chem-cyan file:text-iron-black hover:file:brightness-110 cursor-pointer">
+          </div>
+
+          <div>
+            <label class="block text-xs font-rajdhani font-semibold text-slate-300 mb-1">Kategori Kandungan</label>
+            <select class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-300 focus:outline-none focus:border-chem-cyan">
+              <option>Visual Simulasi 4D (cX Core)</option>
+              <option>Video Makmal Maya XR/VR</option>
+              <option>Dataset Molekul Zenodo</option>
+            </select>
+          </div>
+
+          <button type="submit" class="w-full py-2.5 rounded-lg bg-gradient-to-r from-electric-blue to-horizon-green text-white font-rajdhani font-bold text-xs tracking-wider transition hover:brightness-110 shadow-lg">
+            <i class="fas fa-plus-circle mr-1"></i> TERBITKAN KE GALERI MULTIMEDIA
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- PENGURUSAN WARTA & KELULUSAN PENYELIDIK -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- SIARAN PENGUMUMAN WARTA -->
+      <div class="forged-panel rounded-2xl p-6 border border-slate-700/70">
+        <h3 class="text-base font-bold font-orbitron text-white mb-2 flex items-center gap-2">
+          <i class="fas fa-bullhorn text-power-orange"></i> SIARAN PENGUMUMAN / NEWS TICKER
+        </h3>
+        <p class="text-xs text-slate-400 mb-3">Teks yang ditaip di sini akan terus dipaparkan pada bar warta berita laman utama portal.</p>
+        <textarea rows="3" placeholder="Taip tajuk pengumuman saintifik atau makluman terkini..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-power-orange mb-3"></textarea>
+        <button onclick="alert('Pengumuman warta berjaya disiarkan ke laman utama!')" class="bg-power-orange hover:brightness-110 text-white font-rajdhani font-bold text-xs px-4 py-2 rounded-lg transition">
+          <i class="fas fa-paper-plane mr-1"></i> SIARKAN WARTA
+        </button>
+      </div>
+
+      <!-- KELULUSAN AKAUN PENYELIDIK -->
+      <div class="forged-panel rounded-2xl p-6 border border-slate-700/70">
+        <h3 class="text-base font-bold font-orbitron text-white mb-2 flex items-center gap-2">
+          <i class="fas fa-user-check text-horizon-green"></i> KELULUSAN AKAUN PENYELIDIK (ORCID SSO)
+        </h3>
+        <p class="text-xs text-slate-400 mb-3">Semak dan luluskan permohonan akses daripada penyelidik luar.</p>
+        
+        <div class="space-y-2">
+          <div class="bg-iron-black/80 p-3 rounded-xl border border-slate-800 flex justify-between items-center text-xs">
             <div>
-              <p class="font-bold text-white">Dr. Sarah Jenkins</p>
-              <p class="text-[10px] text-slate-400">ORCID: 0000-0002-1825-0097</p>
+              <p class="font-bold font-rajdhani text-white">Dr. Sarah Jenkins</p>
+              <p class="text-[10px] text-slate-400 font-mono">ORCID: 0000-0002-1825-0097</p>
             </div>
-            <button onclick="this.innerText='Approved'; this.className='text-[10px] bg-emerald-950 text-emerald-400 px-2 py-1 rounded border border-emerald-800';" class="bg-emerald-600 hover:bg-emerald-500 text-white text-[10px] px-2.5 py-1 rounded font-semibold transition">Approve</button>
+            <button onclick="this.textContent='Diluluskan'; this.className='bg-horizon-green text-iron-black font-bold font-rajdhani px-3 py-1 rounded text-xs';" class="bg-horizon-green/20 text-horizon-green border border-horizon-green/40 hover:bg-horizon-green hover:text-iron-black font-bold font-rajdhani px-3 py-1 rounded text-xs transition">
+              Luluskan
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Panel 3: Add Gallery Asset -->
-      <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
-        <h3 class="text-sm font-bold text-white mb-2">Add Gallery Image / VR Milestone</h3>
-        <p class="text-xs text-slate-400 mb-4">Upload lab simulations to the visual archive.</p>
-        <form onsubmit="event.preventDefault(); alert('Asset uploaded to gallery archive!');" class="space-y-3">
-          <input type="text" placeholder="Title of experiment or model" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-white outline-none focus:border-emerald-500">
-          <input type="file" class="w-full text-xs text-slate-400 file:mr-4 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-xs file:bg-slate-800 file:text-emerald-400">
-          <button type="submit" class="w-full bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold py-2 rounded-lg transition border border-slate-700">Add to Gallery</button>
-        </form>
-      </div>
-
     </div>
 
-  </main>
+  </div>
+
+  <footer class="mt-12 text-center text-xs text-slate-500 font-rajdhani">
+    &copy; 2026 XR6 Labs HQ. Executive Access Only. All administrative actions are recorded.
+  </footer>
+
+  <script>
+    function handleAudioUpload(e) {
+      e.preventDefault();
+      const title = document.getElementById('audio-title').value;
+      const fileInput = document.getElementById('audio-file');
+      const fileName = fileInput.files[0] ? fileInput.files[0].name : "Fail audio";
+      alert(`Berjaya! Fail audio "${title}" (${fileName}) telah dimuat naik ke storan pelayan.`);
+    }
+
+    function handleMediaUpload(e) {
+      e.preventDefault();
+      const title = document.getElementById('media-title').value;
+      alert(`Berjaya! Fail media "${title}" telah dihantar ke repositori galeri.`);
+    }
+  </script>
 </body>
 </html>
